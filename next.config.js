@@ -1,6 +1,6 @@
 const nextConfig = {
   basePath: "/my-stuff",
-  trailingSlash: true,
+  trailingSlash: false,
 };
 
 module.exports = nextConfig
