@@ -1,0 +1,13 @@
+[
+    {
+        "projectName": "3D Glass Effect",
+        "description": "Simple project to create a 3D torus with transparent glass effect using Three.js",
+        "url": "torus-glass-effect",
+        "cardImage": "3d-glass-effect.png",
+        "date": "2024-12-11",
+        "githubLink": "https://github.com",
+        "inspirationLink": "https://www.youtube.com/watch?v=9FDt6tuFP-k",
+        "inspirationText": "Inpired by Olivier Larose video",
+        "technologies": "Three.js / React.js"
+    }
+]
