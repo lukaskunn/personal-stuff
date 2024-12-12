@@ -1,5 +1,4 @@
 const nextConfig = {
-  assetPrefix: "/my-stuff-static",
   basePath: "/my-stuff",
 };
 
