@@ -9,5 +9,14 @@
         "inspirationLink": "https://www.youtube.com/watch?v=9FDt6tuFP-k",
         "inspirationText": "Inpired by Olivier Larose video",
         "technologies": "Three.js / React.js"
+    },
+    {
+        "projectName": "Simple items",
+        "description": "Simple project to test render more than one item per scene",
+        "url": "simple-items",
+        "cardImage": "simple_items.png",
+        "date": "2024-12-11",
+        "githubLink": "https://github.com",
+        "technologies": "Three.js / React.js"
     }
 ]
