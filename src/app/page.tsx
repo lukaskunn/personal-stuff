@@ -19,7 +19,7 @@ export default function Home() {
               title={projectName}
               description={description}
               url={url}
-                cardImage={cardImage}
+              cardImage={cardImage}
             />
           );
         })}
