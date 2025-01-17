@@ -7,6 +7,7 @@ import projects from "../../../../public/content/projects.json";
 
 const TorusGlassEffect = lazy(() => import("@/components/TorusGlassEffect"));
 const SimpleItems = lazy(() => import("@/components/SimpleItems"));
+const SmallKeyboard = lazy(() => import("@/components/SmallKeyboard"));
 
 type ProjectProps = {
   params: Promise<{ id: string }>;
@@ -21,6 +22,7 @@ const Project = async ({ params }: ProjectProps) => {
   const componentMap: { [key: string]: React.JSX.Element } = {
     "torus-glass-effect": <TorusGlassEffect />,
     "simple-items": <SimpleItems />,
+    "small-keyboard": <SmallKeyboard />,
   };
 
   const Component = componentMap[id];

@@ -1,5 +1,14 @@
 [
     {
+        "projectName": "Small keyboard",
+        "description": "Small keyboard with simple key press functions",
+        "url": "small-keyboard",
+        "cardImage": "small_keyboard.png",
+        "date": "2025-01-17",
+        "githubLink": "https://github.com",
+        "technologies": "Three.js / React.js"
+    },
+    {
         "projectName": "3D Glass Effect",
         "description": "Simple project to create a 3D torus with transparent glass effect using Three.js",
         "url": "torus-glass-effect",
