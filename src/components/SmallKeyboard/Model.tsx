@@ -1,10 +1,9 @@
-//@ts-nocheck
 import React from "react";
 import {
   useGLTF,
   OrbitControls,
-  Text
 } from "@react-three/drei";
+import * as THREE from "three";
 import { useThree } from "@react-three/fiber";
 import useKeyPress from "@/components/hooks/listenUserKeyPress";
 // import { useControls } from "leva";
@@ -22,16 +21,20 @@ const spaceBarRef = React.useRef<THREE.Mesh>(null);
   const { nodes, materials } = useGLTF("/my-stuff/medias/small_keyboard_2.glb");
   const { viewport } = useThree();
 
-  const pressKey = (key: number) => {
+  const pressKey = (keyIndex: number) => {
     const keys = [key1ref, key2ref, key3ref, key4ref, key5ref, key6ref, spaceBarRef];
 
-    if(keys[key-1].current) {
-        keys[key-1].current.position.y -= 0.15;
+    const key = keys[keyIndex-1]
 
-        setTimeout(() => {
-            keys[key-1].current.position.y += 0.15;
-        }, 100);
-    }
+    if(!key.current) return;
+
+    key.current.position.y -= 0.15;
+
+    setTimeout(() => {
+        if (key.current) {
+            key.current.position.y += 0.15;
+        }
+    }, 100);
   }
 
     useKeyPress("1", () => pressKey(1));
