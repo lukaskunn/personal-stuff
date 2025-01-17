@@ -42,10 +42,17 @@ const Model = () => {
     }
   });
 
+  const normalMaterial1 = new THREE.MeshNormalMaterial({wireframe: true});
+  const basicMaterial = new THREE.MeshBasicMaterial({color: "#ff0000", opacity: 0.2, wireframe: true});
+
   return (
     <group scale={viewport.width / 20} rotation={[0, 30, 0]}>
-      <mesh {...nodes.Cube} rotation={[0, 0, 10]} ref={cubeRef} material={new THREE.MeshNormalMaterial({wireframe: true})} />
-      <mesh {...nodes.Sphere} rotation={[0, 0, 10]} ref={sphereRef} material={new THREE.MeshBasicMaterial({color: "#ff0000", opacity: 0.2, wireframe: true})}/>
+      <mesh {...nodes.Cube} rotation={[0, 0, 10]} ref={cubeRef}>
+        <meshStandardMaterial {...normalMaterial1} />
+        </mesh>
+      <mesh {...nodes.Sphere} rotation={[0, 0, 10]} ref={sphereRef}>
+        <meshBasicMaterial {...basicMaterial} />
+        </mesh>
       <mesh {...nodes.Torus} rotation={[0, 0, 10]} ref={torusRef}>
         <MeshTransmissionMaterial {...materialProps} />
       </mesh>
