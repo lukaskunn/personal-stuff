@@ -18,13 +18,13 @@ const ProjectCard = ({
 }: ProjectCardProps) => {
   return (
     <a className={styles.container} href={`/my-stuff/project/${url}`}>
+      <h2 className={styles["project-title"]}>{title}</h2>
+      <p className={styles["project-description"]}>{description}</p>
       <img
         src={`/my-stuff/images/${cardImage}`}
         alt={cardImageAlt}
         className={styles["background-image"]}
       />
-      <h2 className={styles["project-title"]}>{title}</h2>
-      <p className={styles["project-description"]}>{description}</p>
     </a>
   );
 };

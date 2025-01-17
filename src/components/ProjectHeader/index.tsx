@@ -17,7 +17,7 @@ const ProjectHeader = ({
   projectName: name,
   date,
   description,
-  githubLink,
+//   githubLink,
   inspirationLink,
   inspirationText,
   technologies,
@@ -30,22 +30,22 @@ const ProjectHeader = ({
       <p className={styles["project-name"]}>{name}</p>
       <p className={styles["project-date"]}>{date}</p>
       <p className={styles["project-description"]}>{description}</p>
-      <a
+      {/* <a
         className={styles["github-link"]}
         href={githubLink}
         target="_blank"
         rel="noopener noreferrer"
       >
         project code
-      </a>
-      <a
+      </a> */}
+      {inspirationText && (<a
         className={styles["inspiration-link"]}
         href={inspirationLink}
         target="_blank"
         rel="noopener noreferrer"
       >
         {inspirationText}
-      </a>
+      </a>)}
       <p className={styles["technologies"]}>technologies: {technologies}</p>
     </div>
   );
