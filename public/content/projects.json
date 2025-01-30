@@ -1,5 +1,14 @@
 [
     {
+        "projectName": "Simple Galaxy generator",
+        "description": "Project to generate a galaxy with stars using Three.js",
+        "url": "simple-galaxy",
+        "cardImage": "galaxy.png",
+        "date": "2025-01-30",
+        "githubLink": "https://github.com",
+        "technologies": "Three.js / React.js"
+    },
+    {
         "projectName": "Small keyboard",
         "description": "Small keyboard with simple key press functions",
         "url": "small-keyboard",

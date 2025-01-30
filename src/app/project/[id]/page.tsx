@@ -8,6 +8,7 @@ import projects from "../../../../public/content/projects.json";
 const TorusGlassEffect = lazy(() => import("@/components/TorusGlassEffect"));
 const SimpleItems = lazy(() => import("@/components/SimpleItems"));
 const SmallKeyboard = lazy(() => import("@/components/SmallKeyboard"));
+const SimpleGalaxy = lazy(() => import("@/components/SimpleGalaxy"));
 
 type ProjectProps = {
   params: Promise<{ id: string }>;
@@ -23,6 +24,7 @@ const Project = async ({ params }: ProjectProps) => {
     "torus-glass-effect": <TorusGlassEffect />,
     "simple-items": <SimpleItems />,
     "small-keyboard": <SmallKeyboard />,
+    "simple-galaxy": <SimpleGalaxy />,
   };
 
   const Component = componentMap[id];
