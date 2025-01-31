@@ -9,6 +9,7 @@ const TorusGlassEffect = lazy(() => import("@/components/TorusGlassEffect"));
 const SimpleItems = lazy(() => import("@/components/SimpleItems"));
 const SmallKeyboard = lazy(() => import("@/components/SmallKeyboard"));
 const SimpleGalaxy = lazy(() => import("@/components/SimpleGalaxy"));
+const AsciiFilter = lazy(() => import("@/components/AsciiFilter"));
 
 type ProjectProps = {
   params: Promise<{ id: string }>;
@@ -25,6 +26,7 @@ const Project = async ({ params }: ProjectProps) => {
     "simple-items": <SimpleItems />,
     "small-keyboard": <SmallKeyboard />,
     "simple-galaxy": <SimpleGalaxy />,
+    "ascii-filter": <AsciiFilter />,
   };
 
   const Component = componentMap[id];

@@ -1,5 +1,14 @@
 [
     {
+        "projectName": "Ascii filter",
+        "description": "Simple project to apply ascii filter to three js scene",
+        "url": "ascii-filter",
+        "cardImage": "ascii-filter.png",
+        "date": "2025-01-31",
+        "githubLink": "https://github.com",
+        "technologies": "Three.js / React.js"
+    },
+    {
         "projectName": "Simple Galaxy generator",
         "description": "Project to generate a galaxy with stars using Three.js",
         "url": "simple-galaxy",
