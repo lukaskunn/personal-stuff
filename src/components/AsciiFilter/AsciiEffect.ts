@@ -1,5 +1,6 @@
 import { CanvasTexture, Color, NearestFilter, RepeatWrapping, Texture, Uniform } from 'three';
 import { Effect } from 'postprocessing';
+import * as THREE from 'three';
 
 const fragment = `
 uniform sampler2D uCharacters;
