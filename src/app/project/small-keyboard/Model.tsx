@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import { useGLTF, OrbitControls } from "@react-three/drei";
 import { Mesh } from "three";

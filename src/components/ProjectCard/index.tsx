@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import styles from "./ProjectCard.module.scss";
 
 type ProjectCardProps = {
@@ -17,7 +18,7 @@ const ProjectCard = ({
   cardImageAlt = "",
 }: ProjectCardProps) => {
   return (
-    <a className={styles.container} href={`/my-stuff/project/${url}`}>
+    <Link className={styles.container} href={`/project/${url}`}>
       <h2 className={styles["project-title"]}>{title}</h2>
       <p className={styles["project-description"]}>{description}</p>
       <img
@@ -25,7 +26,7 @@ const ProjectCard = ({
         alt={cardImageAlt}
         className={styles["background-image"]}
       />
-    </a>
+    </Link>
   );
 };
 

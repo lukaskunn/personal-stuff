@@ -1,0 +1,32 @@
+[
+  {
+    "projectName": "Ascii filter",
+    "description": "Simple project to apply ascii filter to three js scene",
+    "url": "ascii-filter",
+    "cardImage": "ascii-filter.png"
+  },
+  {
+    "projectName": "Simple Galaxy generator",
+    "description": "Project to generate a galaxy with stars using Three.js",
+    "url": "simple-galaxy",
+    "cardImage": "galaxy.png"
+  },
+  {
+    "projectName": "Small keyboard",
+    "description": "Small keyboard with simple key press functions",
+    "url": "small-keyboard",
+    "cardImage": "small_keyboard.png"
+  },
+  {
+    "projectName": "3D Glass Effect",
+    "description": "Simple project to create a 3D torus with transparent glass effect using Three.js",
+    "url": "torus-glass-effect",
+    "cardImage": "3d-glass-effect.png"
+  },
+  {
+    "projectName": "Simple items",
+    "description": "Simple project to test render more than one item per scene",
+    "url": "simple-items",
+    "cardImage": "simple_items.png"
+  }
+]

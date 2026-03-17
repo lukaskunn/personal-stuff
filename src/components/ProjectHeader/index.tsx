@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 
 import styles from "./ProjectHeadeer.module.scss";
@@ -8,8 +9,8 @@ type ProjectHeaderProps = {
   date: string;
   description: string;
   githubLink: string;
-  inspirationLink: string;
-  inspirationText: string;
+  inspirationLink?: string;
+  inspirationText?: string;
   technologies: string;
 };
 
@@ -17,16 +18,16 @@ const ProjectHeader = ({
   projectName: name,
   date,
   description,
-//   githubLink,
+  //   githubLink,
   inspirationLink,
   inspirationText,
   technologies,
 }: ProjectHeaderProps) => {
   return (
     <div className={styles.container}>
-      <a className={styles["return-home-link"]} href="/my-stuff">
+      <Link className={styles["return-home-link"]} href="/">
         <FaArrowLeft /> <p className={styles["home-text"]}>Home</p>
-      </a>
+      </Link>
       <p className={styles["project-name"]}>{name}</p>
       <p className={styles["project-date"]}>{date}</p>
       <p className={styles["project-description"]}>{description}</p>
