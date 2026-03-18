@@ -1,6 +1,6 @@
 {
-    "projectName": "Simple items",
-    "description": "Simple project to test render more than one item per scene",
-    "date": "2024-12-11",
-    "technologies": "Three.js / React.js"
+  "projectName": "Simple items",
+  "description": "Simple project to test render more than one item per scene",
+  "date": "2024-12-11",
+  "technologies": "Three.js / React.js"
 }
