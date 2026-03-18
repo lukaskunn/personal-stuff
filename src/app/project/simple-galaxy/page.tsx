@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import projectInfo from "./project-information.json";
@@ -5,6 +6,7 @@ import ProjectHeader from "@/components/ProjectHeader";
 import pageStyles from "../project.module.scss";
 import componentStyles from "./SimpleGallaxy.module.scss";
 import type { ProjectInfoType } from "@/types/project";
+import { getProjectGithubUrl } from "@/lib/github";
 
 const Scene = dynamic(() => import("./Scene"), { ssr: false });
 
@@ -18,9 +20,11 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className={pageStyles.container}>
-      <ProjectHeader {...info} />
+      <ProjectHeader {...info} githubUrl={getProjectGithubUrl("simple-galaxy")} />
       <div className={componentStyles.container}>
-        <Scene />
+        <Suspense fallback={null}>
+          <Scene />
+        </Suspense>
       </div>
     </div>
   );

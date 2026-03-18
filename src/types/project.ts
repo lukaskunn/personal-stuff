@@ -11,12 +11,8 @@ export type ProjectInfoType = {
   projectName: string;
   description: string;
   date: string;
-  githubLink: string;
   inspirationLink?: string;
   inspirationText?: string;
   technologies: string;
   tags?: string[];
 };
-
-/** @deprecated use ProjectCardType or ProjectInfoType */
-export type ProjectType = ProjectCardType & ProjectInfoType;

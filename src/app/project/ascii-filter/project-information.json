@@ -1,7 +1,6 @@
 {
-  "projectName": "Ascii filter",
-  "description": "Simple project to apply ascii filter to three js scene",
-  "date": "2025-01-31",
-  "githubLink": "https://github.com/lukaskunn",
-  "technologies": "Three.js / React.js"
+    "projectName": "Ascii filter",
+    "description": "Simple project to apply ascii filter to three js scene",
+    "date": "2025-01-31",
+    "technologies": "Three.js / React.js"
 }
