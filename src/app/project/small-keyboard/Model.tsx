@@ -4,9 +4,10 @@ import { useGLTF, OrbitControls } from "@react-three/drei";
 import { Mesh } from "three";
 import { useThree } from "@react-three/fiber";
 import useKeyPress from "@/components/hooks/listenUserKeyPress";
-// import { useControls } from "leva";
+import { type KeyboardProps } from "./KeyboardControls";
 
-const Model = () => {
+const Model = ({ keyboardProps }: { keyboardProps: KeyboardProps }) => {
+  const { keyColor, accentColor } = keyboardProps;
   const key1ref = React.useRef<Mesh>(null);
   const key2ref = React.useRef<Mesh>(null);
   const key3ref = React.useRef<Mesh>(null);
@@ -15,7 +16,7 @@ const Model = () => {
   const key6ref = React.useRef<Mesh>(null);
   const spaceBarRef = React.useRef<Mesh>(null);
 
-  const { nodes, materials } = useGLTF("/my-stuff/medias/small_keyboard_2.glb");
+  const { nodes, materials } = useGLTF("/my-stuff/assets/medias/small_keyboard_2.glb");
   const { viewport } = useThree();
 
   const pressKey = (keyIndex: number) => {
@@ -71,7 +72,7 @@ const Model = () => {
         position={[-0.875, 0.139, 2.875]}
         scale={[1, 0.711, 1]}
       >
-        <meshStandardMaterial {...materials[""]} />
+        <meshStandardMaterial {...materials[""]} color={keyColor} />
       </mesh>
       <mesh
         {...nodes.Cube001}
@@ -79,7 +80,7 @@ const Model = () => {
         scale={[1, 0.711, 1]}
         ref={key2ref}
       >
-        <meshStandardMaterial {...materials[""]} />
+        <meshStandardMaterial {...materials[""]} color={keyColor} />
       </mesh>
       <mesh
         {...nodes.Cube002}
@@ -87,7 +88,7 @@ const Model = () => {
         scale={[1, 0.711, 1]}
         ref={key3ref}
       >
-        <meshStandardMaterial {...materials[""]} />
+        <meshStandardMaterial {...materials[""]} color={keyColor} />
       </mesh>
       <mesh
         {...nodes.Cube003}
@@ -95,7 +96,7 @@ const Model = () => {
         scale={[1, 0.711, 1]}
         ref={key4ref}
       >
-        <meshStandardMaterial {...materials[""]} />
+        <meshStandardMaterial {...materials[""]} color={keyColor} />
       </mesh>
       <mesh
         {...nodes.Cube005}
@@ -103,7 +104,7 @@ const Model = () => {
         scale={[1, 0.711, 1]}
         ref={key5ref}
       >
-        <meshStandardMaterial {...materials[""]} />
+        <meshStandardMaterial {...materials[""]} color={keyColor} />
       </mesh>
       <mesh
         {...nodes.Cube006}
@@ -112,7 +113,7 @@ const Model = () => {
         scale={[1, 0.711, 1]}
         ref={spaceBarRef}
       >
-        <meshStandardMaterial {...materials["Orange color"]} />
+        <meshStandardMaterial {...materials["Orange color"]} color={accentColor} />
       </mesh>
       <mesh
         {...nodes.Cube007}
@@ -120,7 +121,7 @@ const Model = () => {
         scale={[1, 0.711, 1]}
         ref={key6ref}
       >
-        <meshStandardMaterial {...materials[""]} />
+        <meshStandardMaterial {...materials[""]} color={keyColor} />
       </mesh>
       <OrbitControls enableDamping dampingFactor={0.08} />
     </group>

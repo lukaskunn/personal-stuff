@@ -2,5 +2,6 @@
   "projectName": "Small keyboard",
   "description": "Small keyboard with simple key press functions",
   "date": "2025-01-17",
-  "technologies": "Three.js / React.js"
+  "technologies": "Three.js / React.js",
+  "isInteractive": true
 }

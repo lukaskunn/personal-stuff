@@ -8,7 +8,7 @@ import { useThree, useFrame } from "@react-three/fiber";
 
 const Model = () => {
   const mesh = React.useRef<THREE.Mesh>(null);
-  const { nodes } = useGLTF("/my-stuff/medias/torus.glb");
+  const { nodes } = useGLTF("/my-stuff/assets/medias/torus.glb");
   const { viewport } = useThree();
 
   const material = new THREE.MeshStandardMaterial({
@@ -25,8 +25,8 @@ const Model = () => {
 
   return (
     <group scale={viewport.width / 20}>
-      <mesh geometry={(nodes.Torus002 as THREE.Mesh).geometry} rotation={[0, 0, 10]} ref={mesh} material={material}/>
-      <OrbitControls enableDamping dampingFactor={0.08} autoRotate autoRotateSpeed={0.1}/>
+      <mesh geometry={(nodes.Torus002 as THREE.Mesh).geometry} rotation={[0, 0, 10]} ref={mesh} material={material} />
+      <OrbitControls enableDamping dampingFactor={0.08} autoRotate autoRotateSpeed={0.1} />
     </group>
   );
 };

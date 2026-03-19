@@ -7,30 +7,12 @@ import {
 } from "@react-three/drei";
 import { Mesh } from "three";
 import { useThree, useFrame } from "@react-three/fiber";
-import { useControls } from "leva";
+import { type TorusMaterialProps } from "./TorusControls";
 
-const Model = () => {
+const Model = ({ materialProps }: { materialProps: TorusMaterialProps }) => {
   const mesh = React.useRef<Mesh>(null);
-  const { nodes } = useGLTF("/my-stuff/medias/torus.glb");
+  const { nodes } = useGLTF("/my-stuff/assets/medias/torus.glb");
   const { viewport } = useThree();
-  //   const orbitControls = React.useRef<OrbitControls>(null);
-
-  const materialProps = useControls({
-    thickness: { value: 0.9, min: 0, max: 3, step: 0.05 },
-    roughness: { value: 0, min: 0, max: 1, step: 0.1 },
-    transmission: { value: 1, min: 0, max: 1, step: 0.1 },
-    ior: { value: 1.2, min: 0, max: 3, step: 0.1 },
-    chromaticAberration: { value: 0.15, min: 0, max: 1 },
-    backside: { value: true },
-  });
-
-  // React.useEffect(() => {
-  //   if (!mesh.current) return;
-
-  //   // mesh.current.rotation.x = 20;
-  //   // mesh.current.rotation.y = 3;
-
-  // }, [])
 
   useFrame(() => {
     if (!mesh.current) return;
@@ -47,7 +29,7 @@ const Model = () => {
       <mesh {...nodes.Torus002} rotation={[0, 0, 10]} ref={mesh}>
         <MeshTransmissionMaterial {...materialProps} />
       </mesh>
-      <OrbitControls enableDamping dampingFactor={0.08} autoRotate autoRotateSpeed={0.1}/>
+      <OrbitControls enableDamping dampingFactor={0.08} autoRotate autoRotateSpeed={0.1} />
     </group>
   );
 };

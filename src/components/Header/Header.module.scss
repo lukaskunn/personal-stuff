@@ -1,0 +1,122 @@
+@use '../../styles/references' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  background: $color-bg;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba($color-fg, 0.08);
+  box-sizing: border-box;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1366px;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+
+.logo {
+  letter-spacing: 0.06em;
+  color: $color-fg;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  font-family: $gloock;
+
+  &:hover {
+    opacity: 0.45;
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  @include font-nav;
+}
+
+.breadcrumbHome {
+  color: rgba($color-fg, 0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $color-fg;
+  }
+
+  @media screen and (max-width: 769px) {
+    display: none;
+  }
+}
+
+.breadcrumbSeparator {
+  color: rgba($color-fg, 0.5);
+  font-weight: 200;
+
+  @media screen and (max-width: 769px) {
+    display: none;
+  }
+}
+
+.breadcrumbProject {
+  color: $color-fg;
+}
+
+.githubLink {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: rgba($color-fg, 0.4);
+  transition: color 0.2s;
+
+  &:hover {
+    color: $color-fg;
+  }
+}
+
+.projectIndex {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: rgba($color-fg, 0.4);
+  flex-shrink: 0;
+
+  @media screen and (max-width: 769px) {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 52px;
+  }
+
+  .headerInner {
+    padding: 0 24px;
+  }
+
+  .logo {
+    font-size: 0.78rem;
+  }
+
+  .breadcrumb {
+    font-size: 0.68rem;
+    gap: 6px;
+  }
+}

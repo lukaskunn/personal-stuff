@@ -1,31 +1,27 @@
-import { Suspense } from "react";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import projectInfo from "./project-information.json";
-import ProjectHeader from "@/components/ProjectHeader";
-import pageStyles from "../project.module.scss";
-import componentStyles from "./SimpleGallaxy.module.scss";
+import ProjectPageLayout, { generateProjectMetadata } from "@/components/ProjectPageLayout";
 import type { ProjectInfoType } from "@/types/project";
-import { getProjectGithubUrl } from "@/lib/github";
 
-const Scene = dynamic(() => import("./Scene"), { ssr: false });
+const GalaxyPageClient = dynamic(() => import("./GalaxyPageClient"), { ssr: false });
 
 const info = projectInfo as ProjectInfoType;
+const SLUG = "simple-galaxy";
 
-export const metadata: Metadata = {
-  title: `${info.projectName} — My Stuff`,
-  description: info.description,
-};
+export const metadata: Metadata = generateProjectMetadata(info);
 
 export default function Page() {
   return (
-    <div className={pageStyles.container}>
-      <ProjectHeader {...info} githubUrl={getProjectGithubUrl("simple-galaxy")} />
-      <div className={componentStyles.container}>
-        <Suspense fallback={null}>
-          <Scene />
-        </Suspense>
-      </div>
-    </div>
+    <ProjectPageLayout info={info} slug={SLUG}>
+      <GalaxyPageClient
+        projectName={info.projectName}
+        description={info.description}
+        technologies={info.technologies}
+        slug={SLUG}
+        inspirationLink={info.inspirationLink}
+        inspirationText={info.inspirationText}
+      />
+    </ProjectPageLayout>
   );
 }

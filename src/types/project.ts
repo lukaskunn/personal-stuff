@@ -4,6 +4,8 @@ export type ProjectCardType = {
   description: string;
   url: string;
   cardImage: string;
+  technologies: string[];
+  tags: string[];
 };
 
 /** Full project metadata used on the project detail page */
@@ -15,4 +17,15 @@ export type ProjectInfoType = {
   inspirationText?: string;
   technologies: string;
   tags?: string[];
+  isInteractive?: boolean;
+};
+
+/** Props shared by all project PageClient components */
+export type SideMenuInfoProps = {
+  projectName: string;
+  description: string;
+  technologies: string;
+  slug: string;
+  inspirationLink?: string;
+  inspirationText?: string;
 };
