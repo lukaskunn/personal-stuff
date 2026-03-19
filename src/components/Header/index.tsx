@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
-import styles from "./Header.module.css";
+import styles from "./Header.module.scss";
 
 type HeaderProps = {
   projectName?: string;

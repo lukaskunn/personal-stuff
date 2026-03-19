@@ -1,4 +1,4 @@
-import styles from "./Controls.module.css";
+import styles from "./Controls.module.scss";
 
 type SliderProps = {
   label: string;

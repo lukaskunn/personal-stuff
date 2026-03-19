@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./ProjectCard.module.css";
+import styles from "./ProjectCard.module.scss";
 
 type ProjectCardProps = {
   title: string;

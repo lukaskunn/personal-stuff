@@ -3,7 +3,7 @@
 import { useState, type ReactNode } from "react";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
-import styles from "./SideMenu.module.css";
+import styles from "./SideMenu.module.scss";
 import { getProjectGithubUrl } from "@/lib/github";
 
 type SideMenuProps = {

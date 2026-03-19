@@ -1,4 +1,4 @@
-import styles from "./SceneLoader.module.css";
+import styles from "./SceneLoader.module.scss";
 
 export default function SceneLoader() {
   return (

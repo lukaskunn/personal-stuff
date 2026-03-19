@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
-import pageStyles from "@/app/project/project.module.css";
-import styles from "./ProjectPageLayout.module.css";
+import styles from "./ProjectPageLayout.module.scss";
 import type { ProjectInfoType } from "@/types/project";
 import { getProjectGithubUrl } from "@/lib/github";
 import { getProjectIndex } from "@/lib/projects";
@@ -25,10 +24,10 @@ export default function ProjectPageLayout({ info, slug, children }: ProjectPageL
   const projectIndex = getProjectIndex(slug);
 
   return (
-    <div className={pageStyles.container}>
+    <div className={styles.container}>
       <Header projectName={info.projectName} githubUrl={githubUrl} projectIndex={projectIndex} />
       {info.isInteractive && (
-        <p className={pageStyles.interactiveFlag}>[ CLICK TO INTERACT ]</p>
+        <p className={styles.interactiveFlag}>[ CLICK TO INTERACT ]</p>
       )}
       <div className={styles.sceneContainer}>
         {children}
