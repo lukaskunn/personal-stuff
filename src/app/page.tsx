@@ -1,30 +1,55 @@
 import styles from "./page.module.css";
-
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import ProjectCard from "@/components/ProjectCard";
-import projects from "../../public/content/projects.json";
-import { ProjectType } from "../types/project";
+import { getProjects } from "@/lib/projects";
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <h1>Welcome to my personal stuff</h1>
-      <p>Find here my mini projects that i use to practice my skills.</p>
-      <div className={styles.projects}>
-        {projects.map((project, index) => {
-          const { projectName, description, url, cardImage } = project as ProjectType;
+  const projects = getProjects();
 
-          return (
-            <ProjectCard
-              key={index}
-              title={projectName}
-              description={description}
-              url={url}
-              cardImage={cardImage}
-            />
-          );
-        })}
+  return (
+    <>
+      <Header />
+      <div className={styles.container}>
+        {/* Hero */}
+        <section className={styles.hero}>
+          <h1 className={styles.heroTitle}>
+            Personal<br /> <strong>Experiments</strong>
+          </h1>
+          <div className={styles.heroBottom}>
+            <p className={styles.heroSubtitle}>
+              A curated collection of micro-interactions, code snippets, design
+              explorations, and weekend builds. These projects represent the
+              playground where logic meets creativity.
+            </p>
+            <p className={styles.scrollCta}>[ SCROLL TO EXPLORE ]</p>
+          </div>
+        </section>
+
+        {/* Projects */}
+        <section className={styles.projectsSection}>
+          <div className={styles.projectsGrid}>
+            {projects.map((project, i) => (
+              <ProjectCard
+                key={project.url}
+                title={project.projectName}
+                description={project.description}
+                url={project.url}
+                cardImage={project.cardImage}
+                technologies={project.technologies}
+                tags={project.tags}
+                index={projects.length - i}
+              />
+            ))}
+            <div className={styles.moreCard}>
+              <span className={styles.moreTitle}>More</span>
+              <span className={styles.moreLabel}>COMING SOON</span>
+            </div>
+          </div>
+        </section>
+
+        <Footer />
       </div>
-    </div>
+    </>
   );
 }
-

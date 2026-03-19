@@ -1,0 +1,71 @@
+// ── Colors ──────────────────────────────────────────────
+$color-bg: #f0ede6;
+$color-fg: #0f0f0f;
+$color-fg-dark: #1a1a1a;
+$color-bg-hover: rgb(230, 227, 222);
+
+// ── Fonts ────────────────────────────────────────────────
+$roboto-mono: var(--font-roboto-mono);
+$roboto: var(--font-roboto);
+$gloock: var(--font-gloock);
+$roboto-serif: "Roboto Serif", serif;
+
+// ── Typography Mixins ─────────────────────────────────────
+
+// Labels: controls, side-menu metadata
+@mixin font-label {
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba($color-fg, 0.35);
+}
+
+// Mono values: slider readouts, color hex
+@mixin font-mono-value {
+  font-family: $roboto-mono;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba($color-fg, 0.45);
+}
+
+// Mono inputs: number/text inputs
+@mixin font-mono-input {
+  font-family: $roboto-mono;
+  font-size: 0.72rem;
+  font-weight: 400;
+}
+
+// Button caps: side-menu action buttons
+@mixin font-button-caps {
+  @include font-mono-input;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+// Hero title (homepage)
+@mixin font-hero-title {
+  font-family: $gloock;
+  font-size: clamp(3.2rem, 9vw, 7.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  // letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+// Nav: header breadcrumbs, indexes
+@mixin font-nav {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+// Scene flag: interactive/loading labels on dark canvas
+@mixin font-flag {
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}

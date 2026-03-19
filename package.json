@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sass": "sass --watch src:src --no-source-map --style compressed"
   },
   "dependencies": {
     "@react-three/drei": "^9.119.0",
