@@ -1,0 +1,24 @@
+.lineWrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.2rem 0;
+}
+
+.lineText {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  will-change: transform;
+}

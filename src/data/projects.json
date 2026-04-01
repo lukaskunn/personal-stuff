@@ -1,5 +1,19 @@
 [
   {
+    "projectName": "Text Block Reveal",
+    "description": "Project to reveal a text with a block with GSAP animation",
+    "url": "text-block-reveal",
+    "cardImage": "text_block_reveal.gif",
+    "technologies": [
+      "GSAP",
+      "React"
+    ],
+    "tags": [
+      "Animation",
+      "GSAP"
+    ]
+  },
+  {
     "projectName": "Ascii filter",
     "description": "Simple project to apply ascii filter to three js scene",
     "url": "ascii-filter",
