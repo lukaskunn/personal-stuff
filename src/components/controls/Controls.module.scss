@@ -147,6 +147,27 @@
   }
 }
 
+/* ── Text Area ────────────────────────────────────────── */
+
+.textArea {
+  width: 100%;
+  border: 1px solid rgba($color-fg, 0.15);
+  background: transparent;
+  color: $color-fg;
+  font-family: $roboto-mono;
+  font-size: 0.7rem;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.15s;
+  resize: vertical;
+  min-height: 60px;
+
+  &:focus {
+    border-color: rgba($color-fg, 0.5);
+  }
+}
+
 /* ── Color Input ──────────────────────────────────────── */
 
 .colorRow {
@@ -188,4 +209,52 @@
 
 .colorValue {
   @include font-mono-value;
+}
+
+/* ── Button ───────────────────────────────────────────── */
+
+.button {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: rgba($color-fg, 0.1);
+  border: 1px solid rgba($color-fg, 0.2);
+  color: $color-fg;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: $roboto-mono;
+  transition: all 0.2s ease;
+  width: 100%;
+
+  &:hover {
+    background: rgba($color-fg, 0.15);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+/* ── Select ───────────────────────────────────────────── */
+
+.select {
+  width: 100%;
+  border: 1px solid rgba($color-fg, 0.15);
+  background: transparent;
+  color: $color-fg;
+  font-family: $roboto-mono;
+  font-size: 0.7rem;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+
+  &:focus {
+    border-color: rgba($color-fg, 0.5);
+  }
+
+  &:hover {
+    border-color: rgba($color-fg, 0.3);
+  }
 }

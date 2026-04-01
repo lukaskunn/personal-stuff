@@ -15,6 +15,8 @@ type SideMenuProps = {
   inspirationText?: string;
   controls?: ReactNode;
   backHref?: string;
+  isOpen?: boolean;
+  onToggle?: (isOpen: boolean) => void;
 };
 
 export default function SideMenu({
@@ -26,9 +28,21 @@ export default function SideMenu({
   inspirationText,
   controls,
   backHref = "/",
+  isOpen: controlledIsOpen,
+  onToggle,
 }: SideMenuProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isControlled = controlledIsOpen !== undefined;
+  const isOpen = isControlled ? controlledIsOpen : internalIsOpen;
   const githubUrl = getProjectGithubUrl(slug);
+
+  const handleToggle = () => {
+    const newValue = !isOpen;
+    if (!isControlled) {
+      setInternalIsOpen(newValue);
+    }
+    onToggle?.(newValue);
+  };
 
   return (
     <>
@@ -40,7 +54,7 @@ export default function SideMenu({
         )}
         <button
           className={`${styles.toggleButton} ${isOpen ? styles.toggleButtonOpen : ""}`}
-          onClick={() => setIsOpen((prev) => !prev)}
+          onClick={handleToggle}
           aria-label={isOpen ? "Close project info" : "Open project info"}
         >
           <span className={styles.toggleOpen}>[ CLOSE ]</span>
