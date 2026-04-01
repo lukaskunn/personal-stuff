@@ -26,6 +26,12 @@ const splitTextIntoLines = (text: string, maxWidth: number, fontSize: number): s
   const paragraphs = text.split('\n');
   const allLines: string[] = [];
 
+  // Check if we're in a browser environment
+  if (typeof document === 'undefined') {
+    // Server-side fallback: just split by paragraphs
+    return paragraphs;
+  }
+
   // Create a canvas for text measurement
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
