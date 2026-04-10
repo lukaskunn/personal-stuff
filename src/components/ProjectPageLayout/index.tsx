@@ -10,6 +10,7 @@ type ProjectPageLayoutProps = {
   info: ProjectInfoType;
   slug: string;
   children: ReactNode;
+  flagText?: string;
 };
 
 export function generateProjectMetadata(info: ProjectInfoType): Metadata {
@@ -19,7 +20,7 @@ export function generateProjectMetadata(info: ProjectInfoType): Metadata {
   };
 }
 
-export default function ProjectPageLayout({ info, slug, children }: ProjectPageLayoutProps) {
+export default function ProjectPageLayout({ info, slug, children, flagText = "[ CLICK TO INTERACT ]"}: ProjectPageLayoutProps) {
   const githubUrl = getProjectGithubUrl(slug);
   const projectIndex = getProjectIndex(slug);
 
@@ -27,7 +28,7 @@ export default function ProjectPageLayout({ info, slug, children }: ProjectPageL
     <div className={styles.container}>
       <Header projectName={info.projectName} githubUrl={githubUrl} projectIndex={projectIndex} />
       {info.isInteractive && (
-        <p className={styles.interactiveFlag}>[ CLICK TO INTERACT ]</p>
+        <p className={styles.interactiveFlag}>{flagText}</p>
       )}
       <div className={styles.sceneContainer}>
         {children}

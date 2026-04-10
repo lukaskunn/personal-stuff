@@ -1,0 +1,8 @@
+{
+  "projectName": "Simple Galaxy generator",
+  "title": "Canvas Grid — Cursor Follow",
+  "description": "A canvas grid over a background image. Cells near the cursor are painted black within a configurable radius.",
+  "date": "2026-04-09",
+  "technologies": "Three.js / React.js",
+  "isInteractive": true
+}

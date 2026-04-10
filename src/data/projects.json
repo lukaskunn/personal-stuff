@@ -1,5 +1,19 @@
 [
   {
+    "projectName": "Canvas Grid — Cursor Follow",
+    "description": "A canvas grid over a background image. Cells near the cursor are painted black within a configurable radius.",
+    "url": "canvas-grid-cursor-follower",
+    "cardImage": "canvas_grid_mouse_follower.gif",
+    "technologies": [
+      "Canvas API",
+      "React",
+      "JavaScript"
+    ],
+    "tags": [
+      "Interactive"
+    ]
+  },
+  {
     "projectName": "Text Block Reveal",
     "description": "Project to reveal a text with a block with GSAP animation",
     "url": "text-block-reveal",
