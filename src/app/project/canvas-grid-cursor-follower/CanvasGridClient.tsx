@@ -58,7 +58,7 @@ export default function CanvasGridClient() {
           projectName={info.title}
           description={info.description}
           technologies={info.technologies}
-          slug="canvas-grid-cusor-follower"
+          slug="canvas-grid-cursor-follower"
           controls={controls}
         />
       </div>
