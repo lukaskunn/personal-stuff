@@ -1,16 +1,13 @@
 import { Metadata } from 'next'
 import projectInfo from "./project-information.json"
-import { generateProjectMetadata } from '@/components/ProjectPageLayout'
-import type { ProjectInfoType } from "@/types/project";
+import { generateProjectMetadata } from '@/lib/projects'
+import { loadProjectInfo } from '@/lib/projects';
 import TextPageClient from './TextPageClient'
 
-const info = projectInfo as ProjectInfoType
-const SLUG = "text-block-reveal"
+const info = loadProjectInfo(projectInfo)
 
 export const metadata: Metadata = generateProjectMetadata(info)
 
-const page = () => {
-  return <TextPageClient info={info} slug={SLUG} />
+export default function Page() {
+  return <TextPageClient info={info} slug={info.slug} />
 }
-
-export default page

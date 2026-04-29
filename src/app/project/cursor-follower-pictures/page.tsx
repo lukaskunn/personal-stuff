@@ -1,14 +1,13 @@
-import { Metadata } from 'next';
+import type { Metadata } from "next";
 import projectInfo from './project-information.json';
-import { generateProjectMetadata } from '@/components/ProjectPageLayout';
-import type { ProjectInfoType } from '@/types/project';
+import { generateProjectMetadata } from '@/lib/projects';
+import { loadProjectInfo } from '@/lib/projects';
 import CursorFollowerClient from './CursorFollowerClient';
 
-const info = projectInfo as ProjectInfoType;
-const SLUG = 'cursor-follower-pictures';
+const info = loadProjectInfo(projectInfo);
 
 export const metadata: Metadata = generateProjectMetadata(info);
 
 export default function Page() {
-  return <CursorFollowerClient info={info} slug={SLUG} />;
+  return <CursorFollowerClient info={info} slug={info.slug} />;
 }

@@ -1,4 +1,5 @@
 {
+  "slug": "simple-items",
   "projectName": "Simple items",
   "description": "Simple project to test render more than one item per scene",
   "date": "2024-12-11",

@@ -1,4 +1,5 @@
 {
+  "slug": "torus-glass-effect",
   "projectName": "3D Glass Effect",
   "description": "Simple project to create a 3D torus with transparent glass effect using Three.js",
   "date": "2024-12-11",

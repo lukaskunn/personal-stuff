@@ -1,4 +1,5 @@
 {
+  "slug": "ascii-filter",
   "projectName": "Ascii filter",
   "description": "Simple project to apply ascii filter to three js scene",
   "date": "2025-01-31",

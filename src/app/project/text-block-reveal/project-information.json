@@ -1,4 +1,5 @@
 {
+  "slug": "text-block-reveal",
   "projectName": "Text block reveal",
   "description": "Project to reveal a text with a block with gsap animation",
   "date": "2026-03-26",

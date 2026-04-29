@@ -1,4 +1,5 @@
 {
+  "slug": "simple-galaxy",
   "projectName": "Simple Galaxy generator",
   "description": "Project to generate a galaxy with stars using Three.js",
   "date": "2025-01-30",

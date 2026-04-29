@@ -20,6 +20,7 @@ export type ControlSchema =
 
 /** Full project metadata used on the project detail page */
 export type ProjectInfoType = {
+  slug: string;
   projectName: string;
   description: string;
   date: string;

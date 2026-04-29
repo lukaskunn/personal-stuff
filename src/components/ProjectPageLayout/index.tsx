@@ -1,7 +1,6 @@
 "use client";
 
 import type { ReactNode } from "react";
-import type { Metadata } from "next";
 import Header from "@/components/Header";
 import SideMenu from "@/components/SideMenu";
 import ControlsMapper from "@/components/ControlsMapper";
@@ -19,13 +18,6 @@ type ProjectPageLayoutProps = {
   onChange?: (patch: Record<string, unknown>) => void;
   onAction?: (actionId: string) => void;
 };
-
-export function generateProjectMetadata(info: ProjectInfoType): Metadata {
-  return {
-    title: `${info.projectName} — My Stuff`,
-    description: info.description,
-  };
-}
 
 export default function ProjectPageLayout({ info, slug, children, flagText = "[ CLICK TO INTERACT ]", values, onChange, onAction }: ProjectPageLayoutProps) {
   const githubUrl = getProjectGithubUrl(slug);

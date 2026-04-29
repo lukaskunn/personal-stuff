@@ -1,4 +1,5 @@
 {
+  "slug": "cursor-follower-pictures",
   "projectName": "Cursor Follower Pictures",
   "description": "A custom cursor follower component that creates an animated trail of pictures with a short lifespan. Move your cursor around to see pictures appear and fade away.",
   "date": "2026-04-15",

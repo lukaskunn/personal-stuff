@@ -1,8 +1,7 @@
 "use client"
 
 import { useRef } from 'react'
-import ProjectPageLayout from '@/components/ProjectPageLayout';
-import { useControls } from '@/components/hooks/useControls';
+import ProjectPageClient from '@/components/ProjectPageClient';
 import { useIsMobile } from '@/components/hooks/useIsMobile';
 import { useMenuState } from '@/components/hooks/useMenuState';
 import TextContainer, { TextContainerRef } from './TextContainer';
@@ -27,11 +26,6 @@ const TextPageClient = ({ info, slug }: Props) => {
   const [isMenuOpen, setIsMenuOpen] = useMenuState(false);
   const isMobile = useIsMobile(768);
 
-  const defaults = Object.fromEntries(
-    (info.controls ?? []).filter((c) => c.type !== "button").map((c) => [c.key, c.default])
-  );
-  const [props, update] = useControls<TextBlockRevealProps>(defaults as unknown as TextBlockRevealProps);
-
   const handleAction = (actionId: string) => {
     if (actionId === 'replay') {
       if (isMobile && isMenuOpen) {
@@ -44,15 +38,9 @@ const TextPageClient = ({ info, slug }: Props) => {
   };
 
   return (
-    <ProjectPageLayout
-      info={info}
-      slug={slug}
-      values={props as Record<string, unknown>}
-      onChange={(patch) => update(patch as Partial<TextBlockRevealProps>)}
-      onAction={handleAction}
-    >
-      <TextContainer ref={containerRef} {...props} />
-    </ProjectPageLayout>
+    <ProjectPageClient info={info} slug={slug} onAction={handleAction}>
+      {(props) => <TextContainer ref={containerRef} {...(props as TextBlockRevealProps)} />}
+    </ProjectPageClient>
   );
 }
 
