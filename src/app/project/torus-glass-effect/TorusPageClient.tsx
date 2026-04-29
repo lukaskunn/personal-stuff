@@ -2,38 +2,40 @@
 
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
-import SideMenu from "@/components/SideMenu";
+import ProjectPageLayout from "@/components/ProjectPageLayout";
 import SceneLoader from "@/components/SceneLoader";
-import TorusControls, { type TorusMaterialProps } from "./TorusControls";
 import { useControls } from "@/components/hooks/useControls";
-import type { SideMenuInfoProps } from "@/types/project";
+import type { ProjectInfoType } from "@/types/project";
 
 const Scene = dynamic(() => import("./Scene"), { ssr: false });
 
-export default function TorusPageClient({ projectName, description, technologies, slug, inspirationLink, inspirationText }: SideMenuInfoProps) {
-  const [props, update] = useControls<TorusMaterialProps>({
-    thickness: 0.9,
-    roughness: 0,
-    transmission: 1,
-    ior: 1.2,
-    chromaticAberration: 0.15,
-    backside: true,
-  });
+export type TorusMaterialProps = {
+  thickness: number;
+  roughness: number;
+  transmission: number;
+  ior: number;
+  chromaticAberration: number;
+  backside: boolean;
+};
+
+type Props = { info: ProjectInfoType; slug: string };
+
+export default function TorusPageClient({ info, slug }: Props) {
+  const defaults = Object.fromEntries(
+    (info.controls ?? []).filter((c) => c.type !== "button").map((c) => [c.key, c.default])
+  );
+  const [props, update] = useControls<TorusMaterialProps>(defaults as unknown as TorusMaterialProps);
 
   return (
-    <>
-      <SideMenu
-        projectName={projectName}
-        description={description}
-        technologies={technologies}
-        slug={slug}
-        inspirationLink={inspirationLink}
-        inspirationText={inspirationText}
-        controls={<TorusControls {...props} onChange={update} />}
-      />
+    <ProjectPageLayout
+      info={info}
+      slug={slug}
+      values={props as Record<string, unknown>}
+      onChange={(patch) => update(patch as Partial<TorusMaterialProps>)}
+    >
       <Suspense fallback={<SceneLoader />}>
         <Scene materialProps={props} />
       </Suspense>
-    </>
+    </ProjectPageLayout>
   );
 }

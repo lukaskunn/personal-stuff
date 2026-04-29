@@ -3,7 +3,7 @@ import React from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Environment } from '@react-three/drei'
 import Model from './Model'
-import { type TorusMaterialProps } from './TorusControls'
+import { type TorusMaterialProps } from './TorusPageClient'
 
 const Scene = ({ materialProps }: { materialProps: TorusMaterialProps }) => {
   return (

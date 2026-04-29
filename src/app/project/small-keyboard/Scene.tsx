@@ -3,7 +3,7 @@ import React from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Environment } from '@react-three/drei'
 import Model from './Model'
-import { type KeyboardProps } from './KeyboardControls'
+import { type KeyboardProps } from './KeyboardPageClient'
 
 const Scene = ({ keyboardProps }: { keyboardProps: KeyboardProps }) => {
   return (

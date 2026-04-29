@@ -2,40 +2,42 @@
 
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
-import SideMenu from "@/components/SideMenu";
+import ProjectPageLayout from "@/components/ProjectPageLayout";
 import SceneLoader from "@/components/SceneLoader";
-import SimpleItemsControls, { type SimpleItemsProps } from "./SimpleItemsControls";
 import { useControls } from "@/components/hooks/useControls";
-import type { SideMenuInfoProps } from "@/types/project";
+import type { ProjectInfoType } from "@/types/project";
 
 const Scene = dynamic(() => import("./Scene"), { ssr: false });
 
-export default function SimpleItemsPageClient({ projectName, description, technologies, slug, inspirationLink, inspirationText }: SideMenuInfoProps) {
-  const [props, update] = useControls<SimpleItemsProps>({
-    rotationSpeed: 0.005,
-    sphereColor: "#ff0000",
-    cubeWireframe: true,
-    sphereWireframe: true,
-    torusThickness: 0.9,
-    torusRoughness: 0,
-    torusTransmission: 1,
-    torusIor: 1.2,
-  });
+export type SimpleItemsProps = {
+  rotationSpeed: number;
+  sphereColor: string;
+  cubeWireframe: boolean;
+  sphereWireframe: boolean;
+  torusThickness: number;
+  torusRoughness: number;
+  torusTransmission: number;
+  torusIor: number;
+};
+
+type Props = { info: ProjectInfoType; slug: string };
+
+export default function SimpleItemsPageClient({ info, slug }: Props) {
+  const defaults = Object.fromEntries(
+    (info.controls ?? []).filter((c) => c.type !== "button").map((c) => [c.key, c.default])
+  );
+  const [props, update] = useControls<SimpleItemsProps>(defaults as unknown as SimpleItemsProps);
 
   return (
-    <>
-      <SideMenu
-        projectName={projectName}
-        description={description}
-        technologies={technologies}
-        slug={slug}
-        inspirationLink={inspirationLink}
-        inspirationText={inspirationText}
-        controls={<SimpleItemsControls {...props} onChange={update} />}
-      />
+    <ProjectPageLayout
+      info={info}
+      slug={slug}
+      values={props as Record<string, unknown>}
+      onChange={(patch) => update(patch as Partial<SimpleItemsProps>)}
+    >
       <Suspense fallback={<SceneLoader />}>
         <Scene simpleItemsProps={props} />
       </Suspense>
-    </>
+    </ProjectPageLayout>
   );
 }

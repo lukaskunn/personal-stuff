@@ -2,42 +2,44 @@
 
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
-import SideMenu from "@/components/SideMenu";
+import ProjectPageLayout from "@/components/ProjectPageLayout";
 import SceneLoader from "@/components/SceneLoader";
-import GalaxyControls, { type GalaxyProps } from "./GalaxyControls";
 import { useControls } from "@/components/hooks/useControls";
-import type { SideMenuInfoProps } from "@/types/project";
+import type { ProjectInfoType } from "@/types/project";
 
 const Scene = dynamic(() => import("./Scene"), { ssr: false });
 
-export default function GalaxyPageClient({ projectName, description, technologies, slug, inspirationLink, inspirationText }: SideMenuInfoProps) {
-  const [props, update] = useControls<GalaxyProps>({
-    count: 20000,
-    size: 0.01,
-    radius: 6,
-    radiusPower: 2,
-    branches: 5,
-    spin: 0.8,
-    randomness: 0.7,
-    randomnessPower: 3,
-    insideColor: "#ff6030",
-    outsideColor: "#1b3984",
-  });
+export type GalaxyProps = {
+  count: number;
+  size: number;
+  radius: number;
+  radiusPower: number;
+  branches: number;
+  spin: number;
+  randomness: number;
+  randomnessPower: number;
+  insideColor: string;
+  outsideColor: string;
+};
+
+type Props = { info: ProjectInfoType; slug: string };
+
+export default function GalaxyPageClient({ info, slug }: Props) {
+  const defaults = Object.fromEntries(
+    (info.controls ?? []).filter((c) => c.type !== "button").map((c) => [c.key, c.default])
+  );
+  const [props, update] = useControls<GalaxyProps>(defaults as unknown as GalaxyProps);
 
   return (
-    <>
-      <SideMenu
-        projectName={projectName}
-        description={description}
-        technologies={technologies}
-        slug={slug}
-        inspirationLink={inspirationLink}
-        inspirationText={inspirationText}
-        controls={<GalaxyControls {...props} onChange={update} />}
-      />
+    <ProjectPageLayout
+      info={info}
+      slug={slug}
+      values={props as Record<string, unknown>}
+      onChange={(patch) => update(patch as Partial<GalaxyProps>)}
+    >
       <Suspense fallback={<SceneLoader />}>
         <Scene galaxyProps={props} />
       </Suspense>
-    </>
+    </ProjectPageLayout>
   );
 }

@@ -8,6 +8,16 @@ export type ProjectCardType = {
   tags: string[];
 };
 
+/** A single control entry in the project-information.json controls array */
+export type ControlSchema =
+  | { type: "slider"; key: string; label: string; default: number; min: number; max: number; step?: number }
+  | { type: "color"; key: string; label: string; default: string }
+  | { type: "toggle"; key: string; label: string; default: boolean }
+  | { type: "select"; key: string; label: string; default: string; options: { value: string; label: string }[] }
+  | { type: "textarea"; key: string; label: string; default: string; rows?: number }
+  | { type: "text"; key: string; label: string; default: string }
+  | { type: "button"; label: string; actionId: string };
+
 /** Full project metadata used on the project detail page */
 export type ProjectInfoType = {
   projectName: string;
@@ -18,14 +28,5 @@ export type ProjectInfoType = {
   technologies: string;
   tags?: string[];
   isInteractive?: boolean;
-};
-
-/** Props shared by all project PageClient components */
-export type SideMenuInfoProps = {
-  projectName: string;
-  description: string;
-  technologies: string;
-  slug: string;
-  inspirationLink?: string;
-  inspirationText?: string;
+  controls?: ControlSchema[];
 };

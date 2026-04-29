@@ -1,60 +1,59 @@
 "use client"
 
-import React, { useRef } from 'react'
-import SideMenu from '@/components/SideMenu'
-import type { SideMenuInfoProps } from "@/types/project";
-import TextBlockRevealControls, { TextBlockRevealProps } from './Controls';
+import { useRef } from 'react'
+import ProjectPageLayout from '@/components/ProjectPageLayout';
 import { useControls } from '@/components/hooks/useControls';
 import { useIsMobile } from '@/components/hooks/useIsMobile';
 import { useMenuState } from '@/components/hooks/useMenuState';
 import TextContainer, { TextContainerRef } from './TextContainer';
+import type { ProjectInfoType } from "@/types/project";
 
-const TextPageClient = ({ projectName, description, slug, technologies, inspirationLink, inspirationText }: SideMenuInfoProps) => {
+type TextBlockRevealProps = {
+  text: string;
+  color: string;
+  blockColor: string;
+  fontSize: number;
+  animationSpeed: number;
+  staggerDelay: number;
+  direction: 'bottom-to-top' | 'top-to-bottom' | 'left-to-right' | 'right-to-left';
+  maxWidth: number;
+  lineHeight: number;
+};
+
+type Props = { info: ProjectInfoType; slug: string };
+
+const TextPageClient = ({ info, slug }: Props) => {
   const containerRef = useRef<TextContainerRef>(null);
   const [isMenuOpen, setIsMenuOpen] = useMenuState(false);
   const isMobile = useIsMobile(768);
 
-  const [props, update] = useControls<TextBlockRevealProps>({
-    text: "Reveal your power\nunleash your potential\nwith every word you speak",
-    color: "#ffffff",
-    blockColor: "#ff0000",
-    fontSize: 48,
-    animationSpeed: 0.8,
-    staggerDelay: 0.15,
-    direction: 'bottom-to-top',
-    maxWidth: 600,
-    lineHeight: 1.2,
-  });
+  const defaults = Object.fromEntries(
+    (info.controls ?? []).filter((c) => c.type !== "button").map((c) => [c.key, c.default])
+  );
+  const [props, update] = useControls<TextBlockRevealProps>(defaults as unknown as TextBlockRevealProps);
 
-  const handleReplay = () => {
-    // Close menu on mobile
-    if (isMobile && isMenuOpen) {
-      setIsMenuOpen(false);
-      // Delay replay on mobile to allow menu to close
-      setTimeout(() => {
+  const handleAction = (actionId: string) => {
+    if (actionId === 'replay') {
+      if (isMobile && isMenuOpen) {
+        setIsMenuOpen(false);
+        setTimeout(() => containerRef.current?.replay(), 500);
+      } else {
         containerRef.current?.replay();
-      }, 500);
-    } else {
-      containerRef.current?.replay();
+      }
     }
   };
 
   return (
-    <>
-      <SideMenu
-        projectName={projectName}
-        description={description}
-        technologies={technologies}
-        slug={slug}
-        inspirationLink={inspirationLink}
-        inspirationText={inspirationText}
-        isOpen={isMenuOpen}
-        onToggle={setIsMenuOpen}
-        controls={<TextBlockRevealControls {...props} onChange={update} onReplay={handleReplay} />}
-      />
+    <ProjectPageLayout
+      info={info}
+      slug={slug}
+      values={props as Record<string, unknown>}
+      onChange={(patch) => update(patch as Partial<TextBlockRevealProps>)}
+      onAction={handleAction}
+    >
       <TextContainer ref={containerRef} {...props} />
-    </>
-  )
+    </ProjectPageLayout>
+  );
 }
 
 export default TextPageClient

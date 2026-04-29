@@ -3,5 +3,91 @@
   "description": "Project to generate a galaxy with stars using Three.js",
   "date": "2025-01-30",
   "technologies": "Three.js / React.js",
-  "isInteractive": true
+  "isInteractive": true,
+  "controls": [
+    {
+      "type": "slider",
+      "key": "count",
+      "label": "Count",
+      "default": 20000,
+      "min": 100,
+      "max": 100000,
+      "step": 100
+    },
+    {
+      "type": "slider",
+      "key": "size",
+      "label": "Size",
+      "default": 0.01,
+      "min": 0.01,
+      "max": 0.1,
+      "step": 0.01
+    },
+    {
+      "type": "slider",
+      "key": "radius",
+      "label": "Radius",
+      "default": 6,
+      "min": 1,
+      "max": 20,
+      "step": 1
+    },
+    {
+      "type": "slider",
+      "key": "radiusPower",
+      "label": "Radius Power",
+      "default": 2,
+      "min": 1,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "type": "slider",
+      "key": "branches",
+      "label": "Branches",
+      "default": 5,
+      "min": 1,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "type": "slider",
+      "key": "spin",
+      "label": "Spin",
+      "default": 0.8,
+      "min": -5,
+      "max": 5,
+      "step": 0.1
+    },
+    {
+      "type": "slider",
+      "key": "randomness",
+      "label": "Randomness",
+      "default": 0.7,
+      "min": 0,
+      "max": 2,
+      "step": 0.001
+    },
+    {
+      "type": "slider",
+      "key": "randomnessPower",
+      "label": "Randomness Power",
+      "default": 3,
+      "min": 1,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "type": "color",
+      "key": "insideColor",
+      "label": "Inside Color",
+      "default": "#ff6030"
+    },
+    {
+      "type": "color",
+      "key": "outsideColor",
+      "label": "Outside Color",
+      "default": "#1b3984"
+    }
+  ]
 }

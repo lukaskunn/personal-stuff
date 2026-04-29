@@ -4,7 +4,7 @@ import { useGLTF, OrbitControls } from "@react-three/drei";
 import { Mesh } from "three";
 import { useThree } from "@react-three/fiber";
 import useKeyPress from "@/components/hooks/listenUserKeyPress";
-import { type KeyboardProps } from "./KeyboardControls";
+import { type KeyboardProps } from "./KeyboardPageClient";
 
 const Model = ({ keyboardProps }: { keyboardProps: KeyboardProps }) => {
   const { keyColor, accentColor } = keyboardProps;

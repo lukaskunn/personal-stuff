@@ -3,5 +3,70 @@
   "description": "Simple project to test render more than one item per scene",
   "date": "2024-12-11",
   "technologies": "Three.js / React.js",
-  "isInteractive": true
+  "isInteractive": true,
+  "controls": [
+    {
+      "type": "slider",
+      "key": "rotationSpeed",
+      "label": "Rotation Speed",
+      "default": 0.005,
+      "min": 0,
+      "max": 0.05,
+      "step": 0.001
+    },
+    {
+      "type": "toggle",
+      "key": "cubeWireframe",
+      "label": "Cube Wireframe",
+      "default": true
+    },
+    {
+      "type": "color",
+      "key": "sphereColor",
+      "label": "Sphere Color",
+      "default": "#ff0000"
+    },
+    {
+      "type": "toggle",
+      "key": "sphereWireframe",
+      "label": "Sphere Wireframe",
+      "default": true
+    },
+    {
+      "type": "slider",
+      "key": "torusThickness",
+      "label": "Torus Thickness",
+      "default": 0.9,
+      "min": 0,
+      "max": 3,
+      "step": 0.05
+    },
+    {
+      "type": "slider",
+      "key": "torusRoughness",
+      "label": "Torus Roughness",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 0.1
+    },
+    {
+      "type": "slider",
+      "key": "torusTransmission",
+      "label": "Torus Transmission",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 0.1
+    },
+    {
+      "type": "slider",
+      "key": "torusIor",
+      "label": "Torus IOR",
+      "default": 1.2,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    }
+  ]
 }

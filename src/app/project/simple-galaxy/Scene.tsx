@@ -3,7 +3,7 @@ import React from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Environment } from '@react-three/drei'
 import Model from './Model'
-import { type GalaxyProps } from './GalaxyControls'
+import { type GalaxyProps } from './GalaxyPageClient'
 
 const Scene = ({ galaxyProps }: { galaxyProps: GalaxyProps }) => {
   return (

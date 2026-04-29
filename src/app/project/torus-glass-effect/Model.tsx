@@ -7,7 +7,7 @@ import {
 } from "@react-three/drei";
 import { Mesh } from "three";
 import { useThree, useFrame } from "@react-three/fiber";
-import { type TorusMaterialProps } from "./TorusControls";
+import { type TorusMaterialProps } from "./TorusPageClient";
 
 const Model = ({ materialProps }: { materialProps: TorusMaterialProps }) => {
   const mesh = React.useRef<Mesh>(null);

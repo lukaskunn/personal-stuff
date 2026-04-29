@@ -1,36 +1,33 @@
 'use client';
 
-import React from 'react';
-import Controls from './Controls';
-import SideMenu from '@/components/SideMenu';
+import ProjectPageLayout from '@/components/ProjectPageLayout';
 import CursorFollower from './CursrorFollower';
 import { useControls } from '@/components/hooks/useControls';
+import type { ProjectInfoType } from '@/types/project';
 
-interface ControlParams {
+type ControlParams = {
   pictureSize: number;
   lifespan: number;
   spawnDistance: number;
   opacity: number;
-}
+};
 
-export default function CursorFollowerClient() {
-  const [props, update] = useControls<ControlParams>({
-    pictureSize: 240,
-    lifespan: 500,
-    spawnDistance: 140,
-    opacity: 1,
-  });
+type Props = { info: ProjectInfoType; slug: string };
+
+export default function CursorFollowerClient({ info, slug }: Props) {
+  const defaults = Object.fromEntries(
+    (info.controls ?? []).filter((c) => c.type !== 'button').map((c) => [c.key, c.default])
+  );
+  const [props, update] = useControls<ControlParams>(defaults as unknown as ControlParams);
 
   return (
-    <>
-      <SideMenu
-        projectName="Cursor Follower Pictures"
-        description="A fun interactive effect where pictures follow the cursor, creating a trailing effect. Customize the picture size, trail length, fade duration, and more!"
-        technologies={'React'}
-        slug="cursor-follower-pictures"
-        controls={<Controls {...props} onUpdate={update} />}
-      />
+    <ProjectPageLayout
+      info={info}
+      slug={slug}
+      values={props as Record<string, unknown>}
+      onChange={(patch) => update(patch as Partial<ControlParams>)}
+    >
       <CursorFollower {...props} />
-    </>
+    </ProjectPageLayout>
   );
 }

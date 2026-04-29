@@ -4,7 +4,7 @@ import {
 } from "@react-three/drei";
 import * as THREE from "three";
 import { useThree } from "@react-three/fiber";
-import { type GalaxyProps } from "./GalaxyControls";
+import { type GalaxyProps } from "./GalaxyPageClient";
 
 const Model = ({ galaxyProps: controls }: { galaxyProps: GalaxyProps }) => {
   const { viewport } = useThree();

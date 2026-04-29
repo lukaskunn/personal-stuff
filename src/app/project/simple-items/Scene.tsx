@@ -3,7 +3,7 @@ import React from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Environment } from '@react-three/drei'
 import Model from './Models'
-import { type SimpleItemsProps } from './SimpleItemsControls'
+import { type SimpleItemsProps } from './SimpleItemsPageClient'
 
 const Scene = ({ simpleItemsProps }: { simpleItemsProps: SimpleItemsProps }) => {
   return (

@@ -5,5 +5,58 @@
   "inspirationLink": "https://www.youtube.com/watch?v=9FDt6tuFP-k",
   "inspirationText": "Inspired by Olivier Larose video",
   "technologies": "Three.js / React.js",
-  "isInteractive": true
+  "isInteractive": true,
+  "controls": [
+    {
+      "type": "slider",
+      "key": "thickness",
+      "label": "Thickness",
+      "default": 0.9,
+      "min": 0,
+      "max": 3,
+      "step": 0.05
+    },
+    {
+      "type": "slider",
+      "key": "roughness",
+      "label": "Roughness",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 0.1
+    },
+    {
+      "type": "slider",
+      "key": "transmission",
+      "label": "Transmission",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 0.1
+    },
+    {
+      "type": "slider",
+      "key": "ior",
+      "label": "IOR",
+      "default": 1.2,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    {
+      "type": "slider",
+      "key": "chromaticAberration",
+      "label": "Chromatic Aberration",
+      "default": 0.15,
+      "min": 0,
+      "max": 1,
+      "step": 0.01
+    },
+    {
+      "type": "toggle",
+      "key": "backside",
+      "label": "Backside",
+      "default": true
+    }
+  ]
 }

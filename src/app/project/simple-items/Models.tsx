@@ -6,7 +6,7 @@ import {
 } from "@react-three/drei";
 import * as THREE from "three";
 import { useThree, useFrame } from "@react-three/fiber";
-import { type SimpleItemsProps } from "./SimpleItemsControls";
+import { type SimpleItemsProps } from "./SimpleItemsPageClient";
 
 const Model = ({ simpleItemsProps }: { simpleItemsProps: SimpleItemsProps }) => {
   const torusRef = React.useRef<THREE.Mesh>(null);
