@@ -1,5 +1,21 @@
 [
   {
+    "projectName": "Cursor Follower Pictures",
+    "description": "A project to create a cursor follower with pictures",
+    "url": "cursor-follower-pictures",
+    "cardImage": "cursor_follower_images.gif",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "GSAP",
+      "CSS Animations"
+    ],
+    "tags": [
+      "Interactive",
+      "Animation"
+    ]
+  },
+  {
     "projectName": "Canvas Grid — Cursor Follow",
     "description": "A canvas grid over a background image. Cells near the cursor are painted black within a configurable radius.",
     "url": "canvas-grid-cursor-follower",
