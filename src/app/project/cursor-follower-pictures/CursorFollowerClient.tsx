@@ -8,7 +8,6 @@ import { useControls } from '@/components/hooks/useControls';
 
 interface ControlParams {
   pictureSize: number;
-  trailLength: number;
   lifespan: number;
   spawnDistance: number;
   opacity: number;
@@ -16,10 +15,9 @@ interface ControlParams {
 
 export default function CursorFollowerClient() {
   const [props, update] = useControls<ControlParams>({
-    pictureSize: 270,
-    trailLength: 5,
-    lifespan: 300,
-    spawnDistance: 60,
+    pictureSize: 240,
+    lifespan: 500,
+    spawnDistance: 140,
     opacity: 1,
   });
 

@@ -44,3 +44,29 @@
   pointer-events: none;
   z-index: 0;
 }
+
+.right-span-text {
+  position: fixed;
+  right: 0%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-weight: 500;
+  color: #0a0a0a;
+
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.left-span-text {
+  position: fixed;
+  left: 0%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-weight: 500;
+  color: #0a0a0a;
+
+  writing-mode: sideways-lr;
+  text-orientation: mixed;
+}
