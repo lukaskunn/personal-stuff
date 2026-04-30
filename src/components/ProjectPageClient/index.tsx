@@ -27,7 +27,7 @@ export default function ProjectPageClient<T extends Record<string, unknown>>({ i
       info={info}
       flagText={flagText}
       values={props}
-      onChange={update}
+      onChange={update as (patch: Record<string, unknown>) => void}
       onAction={onAction}
     >
       {children(props)}
