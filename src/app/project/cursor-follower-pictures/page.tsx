@@ -9,5 +9,5 @@ const info = loadProjectInfo(projectInfo);
 export const metadata: Metadata = generateProjectMetadata(info);
 
 export default function Page() {
-  return <CursorFollowerClient info={info} slug={info.slug} />;
+  return <CursorFollowerClient info={info} />;
 }

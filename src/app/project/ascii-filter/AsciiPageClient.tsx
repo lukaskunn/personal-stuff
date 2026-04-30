@@ -16,11 +16,11 @@ export type AsciiProps = {
   invert: boolean;
 };
 
-type Props = { info: ProjectInfoType; slug: string };
+type Props = { info: ProjectInfoType };
 
-export default function AsciiPageClient({ info, slug }: Props) {
+export default function AsciiPageClient({ info }: Props) {
   return (
-    <ProjectPageClient info={info} slug={slug}>
+    <ProjectPageClient info={info}>
       {(props) => (
         <Suspense fallback={<SceneLoader />}>
           <Scene asciiProps={props as AsciiProps} />

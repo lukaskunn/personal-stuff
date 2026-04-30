@@ -17,11 +17,11 @@ export type TorusMaterialProps = {
   backside: boolean;
 };
 
-type Props = { info: ProjectInfoType; slug: string };
+type Props = { info: ProjectInfoType };
 
-export default function TorusPageClient({ info, slug }: Props) {
+export default function TorusPageClient({ info }: Props) {
   return (
-    <ProjectPageClient info={info} slug={slug}>
+    <ProjectPageClient info={info}>
       {(props) => (
         <Suspense fallback={<SceneLoader />}>
           <Scene materialProps={props as TorusMaterialProps} />

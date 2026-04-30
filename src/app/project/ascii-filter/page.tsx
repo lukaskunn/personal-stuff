@@ -11,5 +11,5 @@ const info = loadProjectInfo(projectInfo);
 export const metadata: Metadata = generateProjectMetadata(info);
 
 export default function Page() {
-  return <AsciiPageClient info={info} slug={info.slug} />;
+  return <AsciiPageClient info={info} />;
 }

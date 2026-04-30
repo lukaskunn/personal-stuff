@@ -11,5 +11,5 @@ const info = loadProjectInfo(projectInfo);
 export const metadata: Metadata = generateProjectMetadata(info);
 
 export default function Page() {
-  return <GalaxyPageClient info={info} slug={info.slug} />;
+  return <GalaxyPageClient info={info} />;
 }

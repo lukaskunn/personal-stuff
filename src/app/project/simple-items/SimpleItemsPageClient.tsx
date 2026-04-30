@@ -19,11 +19,11 @@ export type SimpleItemsProps = {
   torusIor: number;
 };
 
-type Props = { info: ProjectInfoType; slug: string };
+type Props = { info: ProjectInfoType };
 
-export default function SimpleItemsPageClient({ info, slug }: Props) {
+export default function SimpleItemsPageClient({ info }: Props) {
   return (
-    <ProjectPageClient info={info} slug={slug}>
+    <ProjectPageClient info={info}>
       {(props) => (
         <Suspense fallback={<SceneLoader />}>
           <Scene simpleItemsProps={props as SimpleItemsProps} />

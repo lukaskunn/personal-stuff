@@ -14,11 +14,11 @@ export type KeyboardProps = {
   lightIntensity: number;
 };
 
-type Props = { info: ProjectInfoType; slug: string };
+type Props = { info: ProjectInfoType };
 
-export default function KeyboardPageClient({ info, slug }: Props) {
+export default function KeyboardPageClient({ info }: Props) {
   return (
-    <ProjectPageClient info={info} slug={slug}>
+    <ProjectPageClient info={info}>
       {(props) => (
         <Suspense fallback={<SceneLoader />}>
           <Scene keyboardProps={props as KeyboardProps} />

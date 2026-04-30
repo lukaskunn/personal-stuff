@@ -11,5 +11,5 @@ const info = loadProjectInfo(projectInfo);
 export const metadata: Metadata = generateProjectMetadata(info);
 
 export default function Page() {
-  return <TorusPageClient info={info} slug={info.slug} />;
+  return <TorusPageClient info={info} />;
 }

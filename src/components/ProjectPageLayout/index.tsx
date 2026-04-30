@@ -11,7 +11,6 @@ import { getProjectIndex } from "@/lib/projects";
 
 type ProjectPageLayoutProps = {
   info: ProjectInfoType;
-  slug: string;
   children: ReactNode;
   flagText?: string;
   values?: Record<string, unknown>;
@@ -19,9 +18,9 @@ type ProjectPageLayoutProps = {
   onAction?: (actionId: string) => void;
 };
 
-export default function ProjectPageLayout({ info, slug, children, flagText = "[ CLICK TO INTERACT ]", values, onChange, onAction }: ProjectPageLayoutProps) {
-  const githubUrl = getProjectGithubUrl(slug);
-  const projectIndex = getProjectIndex(slug);
+export default function ProjectPageLayout({ info, children, flagText = "[ CLICK TO INTERACT ]", values, onChange, onAction }: ProjectPageLayoutProps) {
+  const githubUrl = getProjectGithubUrl(info.slug);
+  const projectIndex = getProjectIndex(info.slug);
 
   const controls = info.controls && values && onChange
     ? <ControlsMapper schema={info.controls} values={values} onChange={onChange} onAction={onAction} />
@@ -34,7 +33,7 @@ export default function ProjectPageLayout({ info, slug, children, flagText = "[ 
         projectName={info.projectName}
         description={info.description}
         technologies={info.technologies}
-        slug={slug}
+        slug={info.slug}
         inspirationLink={info.inspirationLink}
         inspirationText={info.inspirationText}
         controls={controls}

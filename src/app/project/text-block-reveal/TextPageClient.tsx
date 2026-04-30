@@ -19,9 +19,9 @@ type TextBlockRevealProps = {
   lineHeight: number;
 };
 
-type Props = { info: ProjectInfoType; slug: string };
+type Props = { info: ProjectInfoType };
 
-const TextPageClient = ({ info, slug }: Props) => {
+const TextPageClient = ({ info }: Props) => {
   const containerRef = useRef<TextContainerRef>(null);
   const [isMenuOpen, setIsMenuOpen] = useMenuState(false);
   const isMobile = useIsMobile(768);
@@ -38,7 +38,7 @@ const TextPageClient = ({ info, slug }: Props) => {
   };
 
   return (
-    <ProjectPageClient info={info} slug={slug} onAction={handleAction}>
+    <ProjectPageClient info={info} onAction={handleAction}>
       {(props) => <TextContainer ref={containerRef} {...(props as TextBlockRevealProps)} />}
     </ProjectPageClient>
   );

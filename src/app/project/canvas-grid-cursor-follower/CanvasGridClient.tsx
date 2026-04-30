@@ -12,14 +12,14 @@ type CanvasGridProps = {
   bigBlockChance: number;
 };
 
-type Props = { info: ProjectInfoType; slug: string };
+type Props = { info: ProjectInfoType };
 
 const text1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit";
 const text2 = "sed do eiusmod tempor incididunt ut labore et";
 
-export default function CanvasGridClient({ info, slug }: Props) {
+export default function CanvasGridClient({ info }: Props) {
   return (
-    <ProjectPageClient info={info} slug={slug}>
+    <ProjectPageClient info={info}>
       {(props) => (
         <div style={{ position: 'relative', width: '80%', height: '80%' }}>
           <Image

@@ -1,7 +1,7 @@
 'use client';
 
 import ProjectPageClient from '@/components/ProjectPageClient';
-import CursorFollower from './CursrorFollower';
+import CursorFollower from './CursorFollower';
 import type { ProjectInfoType } from '@/types/project';
 
 type ControlParams = {
@@ -11,11 +11,11 @@ type ControlParams = {
   opacity: number;
 };
 
-type Props = { info: ProjectInfoType; slug: string };
+type Props = { info: ProjectInfoType };
 
-export default function CursorFollowerClient({ info, slug }: Props) {
+export default function CursorFollowerClient({ info }: Props) {
   return (
-    <ProjectPageClient info={info} slug={slug}>
+    <ProjectPageClient info={info}>
       {(props) => <CursorFollower {...(props as ControlParams)} />}
     </ProjectPageClient>
   );

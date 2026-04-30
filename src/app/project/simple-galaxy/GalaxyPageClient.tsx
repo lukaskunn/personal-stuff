@@ -21,11 +21,11 @@ export type GalaxyProps = {
   outsideColor: string;
 };
 
-type Props = { info: ProjectInfoType; slug: string };
+type Props = { info: ProjectInfoType };
 
-export default function GalaxyPageClient({ info, slug }: Props) {
+export default function GalaxyPageClient({ info }: Props) {
   return (
-    <ProjectPageClient info={info} slug={slug}>
+    <ProjectPageClient info={info}>
       {(props) => (
         <Suspense fallback={<SceneLoader />}>
           <Scene galaxyProps={props as GalaxyProps} />

@@ -8,5 +8,5 @@ const info = loadProjectInfo(projectInfo);
 export const metadata = generateProjectMetadata(info);
 
 export default function Page() {
-  return <CanvasGridClient info={info} slug={info.slug} />;
+  return <CanvasGridClient info={info} />;
 }
