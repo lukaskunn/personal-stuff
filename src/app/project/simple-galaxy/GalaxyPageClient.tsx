@@ -25,10 +25,10 @@ type Props = { info: ProjectInfoType };
 
 export default function GalaxyPageClient({ info }: Props) {
   return (
-    <ProjectPageClient info={info}>
+    <ProjectPageClient<GalaxyProps> info={info}>
       {(props) => (
         <Suspense fallback={<SceneLoader />}>
-          <Scene galaxyProps={props as GalaxyProps} />
+          <Scene galaxyProps={props} />
         </Suspense>
       )}
     </ProjectPageClient>

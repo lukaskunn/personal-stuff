@@ -21,10 +21,10 @@ type Props = { info: ProjectInfoType };
 
 export default function TorusPageClient({ info }: Props) {
   return (
-    <ProjectPageClient info={info}>
+    <ProjectPageClient<TorusMaterialProps> info={info}>
       {(props) => (
         <Suspense fallback={<SceneLoader />}>
-          <Scene materialProps={props as TorusMaterialProps} />
+          <Scene materialProps={props} />
         </Suspense>
       )}
     </ProjectPageClient>

@@ -18,10 +18,10 @@ type Props = { info: ProjectInfoType };
 
 export default function KeyboardPageClient({ info }: Props) {
   return (
-    <ProjectPageClient info={info}>
+    <ProjectPageClient<KeyboardProps> info={info}>
       {(props) => (
         <Suspense fallback={<SceneLoader />}>
-          <Scene keyboardProps={props as KeyboardProps} />
+          <Scene keyboardProps={props} />
         </Suspense>
       )}
     </ProjectPageClient>

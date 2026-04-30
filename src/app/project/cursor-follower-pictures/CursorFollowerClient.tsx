@@ -15,8 +15,8 @@ type Props = { info: ProjectInfoType };
 
 export default function CursorFollowerClient({ info }: Props) {
   return (
-    <ProjectPageClient info={info}>
-      {(props) => <CursorFollower {...(props as ControlParams)} />}
+    <ProjectPageClient<ControlParams> info={info}>
+      {(props) => <CursorFollower {...props} />}
     </ProjectPageClient>
   );
 }

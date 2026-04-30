@@ -19,7 +19,7 @@ const text2 = "sed do eiusmod tempor incididunt ut labore et";
 
 export default function CanvasGridClient({ info }: Props) {
   return (
-    <ProjectPageClient info={info}>
+    <ProjectPageClient<CanvasGridProps> info={info}>
       {(props) => (
         <div style={{ position: 'relative', width: '80%', height: '80%' }}>
           <Image
@@ -29,7 +29,7 @@ export default function CanvasGridClient({ info }: Props) {
             style={{ objectFit: 'cover', objectPosition: 'center' }}
           />
           <div style={{ position: 'relative', zIndex: 1, width: '100%', height: '100%' }}>
-            <CanvasGrid {...(props as CanvasGridProps)} />
+            <CanvasGrid {...props} />
             <div style={{ width: "100%", height: "fit-content", background: "black", position: "absolute", top: "50%", transform: "transition(50%, 0%)", color: "white", zIndex: 2, pointerEvents: "none", fontSize: 18 }}>
               <p style={{ margin: "0", display: "flex", justifyContent: "space-between" }}>{text1.split(" ").map((word, index) => <span key={index}>{word}</span>)}</p>
               <p style={{ margin: "0", display: "flex", justifyContent: "space-between" }}>{text2.split(" ").map((word, index) => <span key={index}>{word}</span>)}</p>

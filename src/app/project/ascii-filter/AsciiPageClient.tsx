@@ -20,10 +20,10 @@ type Props = { info: ProjectInfoType };
 
 export default function AsciiPageClient({ info }: Props) {
   return (
-    <ProjectPageClient info={info}>
+    <ProjectPageClient<AsciiProps> info={info}>
       {(props) => (
         <Suspense fallback={<SceneLoader />}>
-          <Scene asciiProps={props as AsciiProps} />
+          <Scene asciiProps={props} />
         </Suspense>
       )}
     </ProjectPageClient>

@@ -38,8 +38,8 @@ const TextPageClient = ({ info }: Props) => {
   };
 
   return (
-    <ProjectPageClient info={info} onAction={handleAction}>
-      {(props) => <TextContainer ref={containerRef} {...(props as TextBlockRevealProps)} />}
+    <ProjectPageClient<TextBlockRevealProps> info={info} onAction={handleAction}>
+      {(props) => <TextContainer ref={containerRef} {...props} />}
     </ProjectPageClient>
   );
 }

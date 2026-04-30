@@ -23,10 +23,10 @@ type Props = { info: ProjectInfoType };
 
 export default function SimpleItemsPageClient({ info }: Props) {
   return (
-    <ProjectPageClient info={info}>
+    <ProjectPageClient<SimpleItemsProps> info={info}>
       {(props) => (
         <Suspense fallback={<SceneLoader />}>
-          <Scene simpleItemsProps={props as SimpleItemsProps} />
+          <Scene simpleItemsProps={props} />
         </Suspense>
       )}
     </ProjectPageClient>
