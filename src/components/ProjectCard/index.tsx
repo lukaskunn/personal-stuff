@@ -1,6 +1,6 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
+import TransitionLink from "@/components/TransitionLink";
 import styles from "./ProjectCard.module.scss";
 
 type ProjectCardProps = {
@@ -15,7 +15,7 @@ type ProjectCardProps = {
 
 const ProjectCard = ({ title, description, url, cardImage, technologies, tags, index }: ProjectCardProps) => {
   return (
-    <Link className={styles.container} href={`/project/${url}`}>
+    <TransitionLink className={styles.container} href={`/project/${url}`}>
       <div className={styles.imageWrapper}>
         {tags[0] && <span className={styles.tagFlag}>{tags[0]}</span>}
         <Image
@@ -40,7 +40,7 @@ const ProjectCard = ({ title, description, url, cardImage, technologies, tags, i
           </div>
         </div>
       </div>
-    </Link>
+    </TransitionLink>
   );
 };
 

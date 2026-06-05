@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import { PageTransitionProvider } from "@/components/PageTransition";
 
 export const metadata: Metadata = {
   title: "My Stuff — Lucas Oliveira",
@@ -57,7 +58,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${robotoMonoFont.variable} ${robotoFont.variable} ${gloockFont.variable}`}>
-      <body>{children}</body>
+      <body>
+        <PageTransitionProvider>
+          {children}
+        </PageTransitionProvider>
+      </body>
     </html>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import Link from "next/link";
+import TransitionLink from "@/components/TransitionLink";
 import { FaGithub } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa6";
 import styles from "./SideMenu.module.scss";
@@ -53,9 +53,9 @@ export default function SideMenu({
     <>
       <div className={`${styles.buttonGroup} ${isOpen ? styles.buttonGroupOpen : ""}`}>
         {backHref && (
-          <Link href={backHref} className={styles.backButton}>
+          <TransitionLink href={backHref} className={styles.backButton}>
             [ BACK TO ALL PROJECTS ]
-          </Link>
+          </TransitionLink>
         )}
         <button
           className={`${styles.toggleButton} ${isOpen ? styles.toggleButtonOpen : ""}`}
