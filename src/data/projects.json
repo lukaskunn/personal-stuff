@@ -1,5 +1,19 @@
 [
   {
+    "projectName": "Unknown Pleasures Wave",
+    "description": "Animated recreation of the iconic Joy Division Unknown Pleasures pulsar radio wave artwork",
+    "url": "unknown-pleasures-wave",
+    "cardImage": "unknown-pleasures-waves.gif",
+    "technologies": [
+      "Three.js",
+      "React"
+    ],
+    "tags": [
+      "Animation",
+      "Interactive"
+    ]
+  },
+  {
     "projectName": "Cursor Follower Pictures",
     "description": "A project to create a cursor follower with pictures",
     "url": "cursor-follower-pictures",
