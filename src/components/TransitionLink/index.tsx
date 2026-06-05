@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useTransition } from "@/components/PageTransition";
 import type { ComponentPropsWithoutRef } from "react";
 
@@ -10,26 +10,21 @@ type TransitionLinkProps = Omit<ComponentPropsWithoutRef<"a">, "href"> & {
 
 export default function TransitionLink({ href, children, onClick, ...props }: TransitionLinkProps) {
   const { navigate } = useTransition();
-  const router = useRouter();
 
-  const isInternal = !href.startsWith("http") && !href.startsWith("//");
-
-  const handleMouseEnter = () => {
-    if (isInternal) router.prefetch(href);
-  };
+  const isExternal = href.startsWith("http") || href.startsWith("//");
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    const isExternal = href.startsWith("http") || href.startsWith("//");
+    if (isExternal) return;
     const isModified = e.metaKey || e.ctrlKey || e.shiftKey || e.altKey;
-    if (isExternal || isModified) return;
+    if (isModified) return;
     e.preventDefault();
     onClick?.(e);
     navigate(href);
   };
 
   return (
-    <a href={href} onClick={handleClick} onMouseEnter={handleMouseEnter} {...props}>
+    <Link href={href} onClick={handleClick} prefetch={!isExternal} {...props}>
       {children}
-    </a>
+    </Link>
   );
 }

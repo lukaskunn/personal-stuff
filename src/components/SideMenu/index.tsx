@@ -32,7 +32,7 @@ export default function SideMenu({
   articleSlug,
   articleText = "READ ARTICLE",
   controls,
-  backHref = "/my-stuff",
+  backHref = "/",
   isOpen: controlledIsOpen,
   onToggle,
 }: SideMenuProps) {

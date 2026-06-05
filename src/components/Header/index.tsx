@@ -22,7 +22,7 @@ export default function Header({ projectName, githubUrl, projectIndex }: HeaderP
         </a>
 
         <nav className={styles.breadcrumb}>
-          <TransitionLink href="/my-stuff" className={styles.breadcrumbHome}>
+          <TransitionLink href="/" className={styles.breadcrumbHome}>
             [ PROJECTS ]
           </TransitionLink>
           {projectName && (
