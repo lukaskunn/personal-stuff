@@ -18,7 +18,7 @@ type ProjectPageLayoutProps = {
   onAction?: (actionId: string) => void;
 };
 
-export default function ProjectPageLayout({ info, children, flagText = "[ CLICK TO INTERACT ]", values, onChange, onAction }: ProjectPageLayoutProps) {
+export default function ProjectPageLayout({ info, children, flagText = info.flagText ?? "[ CLICK TO INTERACT ]", values, onChange, onAction }: ProjectPageLayoutProps) {
   const githubUrl = getProjectGithubUrl(info.slug);
   const projectIndex = getProjectIndex(info.slug);
 
@@ -36,6 +36,8 @@ export default function ProjectPageLayout({ info, children, flagText = "[ CLICK 
         slug={info.slug}
         inspirationLink={info.inspirationLink}
         inspirationText={info.inspirationText}
+        articleSlug={info.articleSlug}
+        articleText={info.articleText}
         controls={controls}
       />
       {info.isInteractive && (

@@ -29,5 +29,8 @@ export type ProjectInfoType = {
   technologies: string;
   tags?: string[];
   isInteractive?: boolean;
+  flagText?: string;
+  articleSlug?: string;
+  articleText?: string;
   controls?: ControlSchema[];
 };

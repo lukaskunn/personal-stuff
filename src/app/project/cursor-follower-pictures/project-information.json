@@ -5,6 +5,9 @@
   "date": "2026-04-15",
   "inspirationLink": "",
   "inspirationText": "",
+  "flagText": "Move cursor to interact",
+  "articleText": "Check how to build",
+  "articleSlug": "building-a-cursor-follower-with-images-in-react",
   "technologies": "React.js / Canvas / requestAnimationFrame",
   "isInteractive": true,
   "controls": [

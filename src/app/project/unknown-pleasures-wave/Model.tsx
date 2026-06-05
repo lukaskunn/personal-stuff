@@ -35,7 +35,7 @@ export default function Model({ waveProps }: Props) {
   );
 
   const initialPositions = useMemo(() => {
-    return Array.from({ length: lineCount }, (_, row) => {
+    return Array.from({ length: lineCount }, () => {
       const positions = new Float32Array(POINTS_PER_LINE * 3);
       for (let i = 0; i < POINTS_PER_LINE; i++) {
         positions[i * 3] = (i / (POINTS_PER_LINE - 1)) * LINE_WIDTH - LINE_WIDTH / 2;
@@ -53,7 +53,6 @@ export default function Model({ waveProps }: Props) {
     lineRefs.forEach((ref, row) => {
       if (!ref.current) return;
       const posAttr = ref.current.attributes.position as THREE.BufferAttribute;
-      const yBase = (row / (lineCount - 1)) * LINE_WIDTH - LINE_WIDTH / 2;
 
       for (let i = 0; i < POINTS_PER_LINE; i++) {
         const x = (i / (POINTS_PER_LINE - 1)) * LINE_WIDTH - LINE_WIDTH / 2;
@@ -72,6 +71,7 @@ export default function Model({ waveProps }: Props) {
       {Array.from({ length: lineCount }, (_, row) => {
         const y = (row / (lineCount - 1)) * totalHeight - totalHeight / 2;
         return (
+          // @ts-expect-error: <line> conflicts with SVG intrinsic; this is THREE.Line via R3F
           <line key={row} position={[0, y, row * 0.001]}>
             <bufferGeometry ref={lineRefs[row]}>
               <bufferAttribute
