@@ -4,9 +4,6 @@ import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import styles from "./LoadingScreen.module.scss";
 
-// In-memory flag: resets on page reload, survives client-side navigation
-let hasAnimated = false;
-
 export default function LoadingScreen() {
   const overlayRef = useRef<HTMLDivElement>(null);
   const counterRef = useRef<HTMLSpanElement>(null);
@@ -17,13 +14,14 @@ export default function LoadingScreen() {
     const counter = counterRef.current;
     if (!overlay || !counter) return;
 
-    if (hasAnimated) {
+    // Skip on every load after the first one in this session
+    if (sessionStorage.getItem("loaded")) {
       gsap.set(overlay, { yPercent: -100 });
       return;
     }
 
     const tl = gsap.timeline({
-      onComplete: () => { hasAnimated = true; },
+      onComplete: () => sessionStorage.setItem("loaded", "1"),
     });
 
     // Slide counter text up into view from behind mask
