@@ -15,7 +15,7 @@
 }
 
 .buttonBase {
-  background: $color-bg;
+  background: $color-bg-white;
   border: 1px solid rgba($color-fg, 0.18);
   color: $color-fg;
   @include font-button-caps;
@@ -70,7 +70,7 @@
   width: 380px;
   max-width: 90vw;
   z-index: 180;
-  background: $color-bg;
+  background: $color-bg-white;
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-left: 1px solid rgba($color-fg, 0.08);

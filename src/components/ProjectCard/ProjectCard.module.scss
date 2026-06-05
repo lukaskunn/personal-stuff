@@ -24,7 +24,7 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: #e2dfd8;
+  background: $color-bg-white;
 }
 
 .cardImage {
@@ -37,7 +37,7 @@
   top: 8px;
   right: 8px;
   z-index: 2;
-  background: #f0ede6;
+  background: $color-bg-white;
   color: #010101;
   font-size: 0.58rem;
   font-weight: 700;
@@ -51,7 +51,7 @@
   flex-direction: column;
   gap: 0;
   position: absolute;
-  background: #f0ede6;
+  background: $color-bg-white;
   transition: .2s bottom ease;
   bottom: 0;
   width: 100%;

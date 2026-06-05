@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TransitionLink from "@/components/TransitionLink";
 import { FaGithub } from "react-icons/fa";
 import styles from "./Header.module.scss";
 
@@ -22,9 +22,9 @@ export default function Header({ projectName, githubUrl, projectIndex }: HeaderP
         </a>
 
         <nav className={styles.breadcrumb}>
-          <Link href="/" className={styles.breadcrumbHome}>
+          <TransitionLink href="/" className={styles.breadcrumbHome}>
             [ PROJECTS ]
-          </Link>
+          </TransitionLink>
           {projectName && (
             <>
               <span className={styles.breadcrumbSeparator}>/</span>
