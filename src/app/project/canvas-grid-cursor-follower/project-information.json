@@ -5,6 +5,9 @@
   "date": "2026-04-09",
   "technologies": "React.js / Canvas",
   "isInteractive": true,
+  "flagText": "Move cursor to interact",
+  "articleText": "Check how to build",
+  "articleSlug": "building-a-canvas-grid-cursor-follower-in-react",
   "controls": [
     {
       "type": "slider",

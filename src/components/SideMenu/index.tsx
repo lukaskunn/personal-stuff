@@ -3,6 +3,7 @@
 import { useState, type ReactNode } from "react";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
+import { FaBookmark } from "react-icons/fa6";
 import styles from "./SideMenu.module.scss";
 import { getProjectGithubUrl } from "@/lib/github";
 
@@ -13,6 +14,8 @@ type SideMenuProps = {
   slug: string;
   inspirationLink?: string;
   inspirationText?: string;
+  articleSlug?: string;
+  articleText?: string;
   controls?: ReactNode;
   backHref?: string;
   isOpen?: boolean;
@@ -26,6 +29,8 @@ export default function SideMenu({
   slug,
   inspirationLink,
   inspirationText,
+  articleSlug,
+  articleText = "READ ARTICLE",
   controls,
   backHref = "/",
   isOpen: controlledIsOpen,
@@ -100,6 +105,17 @@ export default function SideMenu({
         </div>
 
         <div className={styles.panelFooter}>
+          {articleSlug && (
+            <a
+              href={`https://blog.lucasoliveira.io/post/${articleSlug}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.articleButton}
+            >
+              <span>{articleText}</span>
+              <FaBookmark size={18} color="#111" />
+            </a>
+          )}
           <a
             href={githubUrl}
             target="_blank"
