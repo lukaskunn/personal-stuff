@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 import { PageTransitionProvider } from "@/components/PageTransition";
+import LoadingScreen from "@/components/LoadingScreen";
 
 export const metadata: Metadata = {
   title: "My Stuff — Lucas Oliveira",
@@ -60,6 +61,7 @@ export default function RootLayout({
     <html lang="en" className={`${robotoMonoFont.variable} ${robotoFont.variable} ${gloockFont.variable}`}>
       <body>
         <PageTransitionProvider>
+          <LoadingScreen />
           {children}
         </PageTransitionProvider>
       </body>

@@ -1,0 +1,28 @@
+@use '../../styles/references' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #f5f5f5;
+  z-index: 10000;
+  will-change: transform;
+}
+
+.counterWrapper {
+  position: absolute;
+  bottom: 32px;
+  right: 36px;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.counter {
+  display: block;
+  font-size: 4rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  font-family: var(--font-roboto-mono);
+  will-change: transform;
+  transform: translateY(100%);
+}

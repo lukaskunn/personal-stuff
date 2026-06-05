@@ -15,7 +15,6 @@ export default function TransitionLink({ href, children, onClick, ...props }: Tr
   const isInternal = !href.startsWith("http") && !href.startsWith("//");
 
   const handleMouseEnter = () => {
-    console.log("is internal")
     if (isInternal) router.prefetch(href);
   };
 
