@@ -96,6 +96,20 @@
     ]
   },
   {
+    "projectName": "Unknown Pleasures Wave",
+    "description": "Animated recreation of the iconic Joy Division Unknown Pleasures pulsar radio wave artwork",
+    "url": "unknown-pleasures-wave",
+    "cardImage": "",
+    "technologies": [
+      "Three.js",
+      "React"
+    ],
+    "tags": [
+      "Animation",
+      "Interactive"
+    ]
+  },
+  {
     "projectName": "Simple items",
     "description": "Simple project to test render more than one item per scene",
     "url": "simple-items",
