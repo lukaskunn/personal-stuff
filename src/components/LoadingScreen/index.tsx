@@ -14,12 +14,20 @@ export default function LoadingScreen() {
     const counter = counterRef.current;
     if (!overlay || !counter) return;
 
-    const tl = gsap.timeline();
+    // Skip on every load after the first one in this session
+    if (sessionStorage.getItem("loaded")) {
+      gsap.set(overlay, { yPercent: -100 });
+      return;
+    }
+
+    const tl = gsap.timeline({
+      onComplete: () => sessionStorage.setItem("loaded", "1"),
+    });
 
     // Slide counter text up into view from behind mask
     tl.fromTo(counter, { y: 100 }, { y: 0, duration: 0.6, ease: "power3.out" });
 
-    // Count 0 → 100 over 4s
+    // Count 0 → 100 over 3s
     const obj = { value: 0 };
     tl.to(
       obj,
