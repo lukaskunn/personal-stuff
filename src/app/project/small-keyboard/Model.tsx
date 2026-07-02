@@ -16,7 +16,7 @@ const Model = ({ keyboardProps }: { keyboardProps: KeyboardProps }) => {
   const key6ref = React.useRef<Mesh>(null);
   const spaceBarRef = React.useRef<Mesh>(null);
 
-  const { nodes, materials } = useGLTF("/my-stuff/assets/medias/small_keyboard_2.glb");
+  const { nodes, materials } = useGLTF("/assets/medias/small_keyboard_2.glb");
   const { viewport } = useThree();
 
   const pressKey = (keyIndex: number) => {

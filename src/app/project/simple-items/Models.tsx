@@ -12,7 +12,7 @@ const Model = ({ simpleItemsProps }: { simpleItemsProps: SimpleItemsProps }) => 
   const torusRef = React.useRef<THREE.Mesh>(null);
   const cubeRef = React.useRef<THREE.Mesh>(null);
   const sphereRef = React.useRef<THREE.Mesh>(null);
-  const { nodes } = useGLTF("/my-stuff/assets/medias/simple_items.glb");
+  const { nodes } = useGLTF("/assets/medias/simple_items.glb");
   const { viewport } = useThree();
 
   const { rotationSpeed, sphereColor, cubeWireframe, sphereWireframe,

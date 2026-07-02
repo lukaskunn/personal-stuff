@@ -23,7 +23,7 @@ export default function CanvasGridClient({ info }: Props) {
       {(props) => (
         <div style={{ position: 'relative', width: '80%', height: '80%' }}>
           <Image
-            src="/my-stuff/assets/images/orange_picture_unsplash.jpg"
+            src="/assets/images/orange_picture_unsplash.jpg"
             alt="Background"
             fill
             style={{ objectFit: 'cover', objectPosition: 'center' }}
