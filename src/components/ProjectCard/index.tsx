@@ -19,7 +19,7 @@ const ProjectCard = ({ title, description, url, cardImage, technologies, tags, i
       <div className={styles.imageWrapper}>
         {tags[0] && <span className={styles.tagFlag}>{tags[0]}</span>}
         <Image
-          src={`/my-stuff/assets/images/${cardImage}`}
+          src={`/assets/images/${cardImage}`}
           alt={title}
           fill
           sizes="(max-width: 768px) 50vw, 25vw"

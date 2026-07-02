@@ -11,7 +11,7 @@ import { type TorusMaterialProps } from "./TorusPageClient";
 
 const Model = ({ materialProps }: { materialProps: TorusMaterialProps }) => {
   const mesh = React.useRef<Mesh>(null);
-  const { nodes } = useGLTF("/my-stuff/assets/medias/torus.glb");
+  const { nodes } = useGLTF("/assets/medias/torus.glb");
   const { viewport } = useThree();
 
   useFrame(() => {

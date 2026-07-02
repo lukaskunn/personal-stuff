@@ -8,7 +8,7 @@ import { useThree, useFrame } from "@react-three/fiber";
 
 const Model = () => {
   const mesh = React.useRef<THREE.Mesh>(null);
-  const { nodes } = useGLTF("/my-stuff/assets/medias/torus.glb");
+  const { nodes } = useGLTF("/assets/medias/torus.glb");
   const { viewport } = useThree();
 
   const material = new THREE.MeshStandardMaterial({

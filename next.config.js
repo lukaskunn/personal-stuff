@@ -1,5 +1,4 @@
 const nextConfig = {
-  basePath: "/my-stuff",
   trailingSlash: false,
 };
 
